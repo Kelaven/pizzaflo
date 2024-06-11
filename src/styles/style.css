@@ -1,0 +1,9 @@
+/* Styles globaux spécifiques à votre projet */
+/* body {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-family: var(--font-family);
+} */
+* {
+  background-color: lightblue;
+}
