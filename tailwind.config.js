@@ -2,7 +2,7 @@
 export default {
   content: [
     "./src/**/*.{html,js,css}",
-    "./node_modules/tw-elements/js/**/*.js",
+    // "./node_modules/tw-elements/js/**/*.js",
     'node_modules/preline/dist/*.js',
   ],
   theme: {
