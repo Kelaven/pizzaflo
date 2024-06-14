@@ -1,5 +1,9 @@
 import "./app/app.js";
 
-import { Collapse, Dropdown, initTWE } from "tw-elements";
+import 'preline';
 
-initTWE({ Collapse, Dropdown });
+// import { Collapse, initTWE } from "tw-elements";
+
+// initTWE({ Collapse });
+
+
