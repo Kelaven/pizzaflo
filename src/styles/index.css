@@ -6,6 +6,6 @@
 
 @layer utilities {
   .nav-height {
-    @apply h-[calc(100vh-88px)];
+    @apply h-[calc(100svh-88px)];
   }
 }
