@@ -73,20 +73,21 @@
 
   <main>
     <!-- ! Hero -->
-    <!-- <section class="nav-height bg-hero bg-cover bg-no-repeat bg-bottom">
-      <div class="bg-overlay-black opacity-70 h-full">
-        <div class="bg-gray-300 h-5/6 ">
-          <h1>Artisan pizzaïolo depuis 1993 <br> PIZZA FLO</h1>
-        </div>
-        <div></div>
-      </div>
-    </section> -->
     <section class="nav-height">
-      <picture>
-        <source media="(max-width: 640px)" srcset="/assets/img/hero-portrait-light-40.jpg">
-        <img class="h-full w-full object-cover" src="/assets/img/hero-paysage-60.jpg"
-          alt="photo de pizza savoyarde cuite au feu de bois">
-      </picture>
+      <div class="h-full relative">
+        <picture class="absolute z-0 h-full w-full">
+          <!-- for portrait mobile : -->
+          <source media="(max-width: 640px)" srcset="/assets/img/hero-portrait-light-40.jpg">
+          <!-- for desktop : -->
+          <img class="object-cover h-full w-full" src="/assets/img/hero-paysage-60.jpg"
+            alt="photo de pizza savoyarde cuite au feu de bois">
+        </picture>
+        <div class="absolute z-1 bg-overlay-black opacity-70 h-full w-full">
+          <div class="bg-gray-300 h-5/6 ">
+            <h1>Artisan pizzaïolo depuis 1993 <br> PIZZA FLO</h1>
+          </div>
+        </div>
+      </div>
     </section>
 
   </main>
