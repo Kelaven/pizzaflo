@@ -10,12 +10,34 @@ export default {
       colors: {
         "break-black": "#222",
         "overlay-black": "#333",
+        "logo-green": "#00925A",
+        "logo-red": "#DF2416",
       },
       fontFamily: {
         oswald: ["Oswald", "Arial", "sans-serif"],
+        anton: ["Anton", "Impact", "Arial Black", "sans-serif"],
+      },
+      fontSize: {
+        'lg-md': '1.2315rem',
+        '2.5xl': ['1.78rem', {
+          lineHeight: '2.125rem',
+          letterSpacing: '-0.015em',
+          fontWeight: '600',
+        }],
+        '7.5xl': ['5.3381rem', {
+          lineHeight: '1',
+        }],
+      },
+      letterSpacing: {
+        'normal-md': '0.0125em',
+        'wide-md': '.04em',
       },
       screens: {
+        'max-md-sm': { 'max': '390px' },
         'max-sm': { 'max': '640px' },
+      },
+      width: {
+        '10.5/12': '85%',
       },
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",
