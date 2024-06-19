@@ -39,6 +39,9 @@ export default {
       width: {
         '10.5/12': '85%',
       },
+      animation: {
+        'nav-underline': 'underline-animation 0.3s ease-in-out',
+      }
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",
       // },

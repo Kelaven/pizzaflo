@@ -8,4 +8,28 @@
   .nav-height {
     @apply h-[calc(100svh-88px)];
   }
+  /* .underline-green {
+    @apply underline decoration-solid decoration-logo-green decoration-4 underline-offset-8 w-0;
+  } */
+  .underline-white {
+    @apply underline decoration-solid decoration-white decoration-4 underline-offset-8;
+  }
+  .underline-red {
+    @apply underline decoration-solid decoration-logo-red decoration-4 underline-offset-8;
+  }
+}
+
+.animate-underline::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  text-underline-offset: 8px;
+  background-color: #10b981; /* Changez cette couleur si nécessaire */
+  transition: width 0.3s ease-in-out;
+}
+
+.animate-underline:hover::after {
+  width: 100%;
 }
