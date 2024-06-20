@@ -1,6 +1,73 @@
-/* Styles globaux spécifiques à votre projet */
-/* body {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-family: var(--font-family);
-} */
+/* ! General */
+/* Scroll bar */
+body::-webkit-scrollbar {
+  background-color: #222222;
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #222222;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 1px solid #6e6c6b;
+}
+
+/* ! First section */
+/* Navbar underline */
+.animate-underline-green::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  text-underline-offset: 8px;
+  background-color: #04925c;
+  transition: width 0.3s ease-in-out;
+}
+.animate-underline-green:hover::after {
+  width: 100%;
+}
+.animate-underline-white::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  text-underline-offset: 8px;
+  background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+.animate-underline-white:hover::after {
+  width: 100%;
+}
+.animate-underline-red::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  text-underline-offset: 8px;
+  background-color: #df2416;
+  transition: width 0.3s ease-in-out;
+}
+.animate-underline-red:hover::after {
+  width: 100%;
+}
+/* Arrow down animation */
+.fa-chevron-down {
+  animation: slideDown 2s ease-in-out forwards;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(10px);
+    opacity: 0.3;
+  }
+}

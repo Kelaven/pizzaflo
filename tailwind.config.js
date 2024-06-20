@@ -16,9 +16,15 @@ export default {
       fontFamily: {
         oswald: ["Oswald", "Arial", "sans-serif"],
         anton: ["Anton", "Impact", "Arial Black", "sans-serif"],
+        openSans: ["Open Sans", "Helvetica Neue", "Arial", "sans-serif"],
       },
       fontSize: {
         'lg-md': '1.2315rem',
+        '1.5xl': ['1.375rem', {
+          lineHeight: '1.75rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '500',
+        }],
         '2.5xl': ['1.78rem', {
           lineHeight: '2.125rem',
           letterSpacing: '-0.015em',
@@ -39,9 +45,6 @@ export default {
       width: {
         '10.5/12': '85%',
       },
-      animation: {
-        'nav-underline': 'underline-animation 0.3s ease-in-out',
-      }
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",
       // },
