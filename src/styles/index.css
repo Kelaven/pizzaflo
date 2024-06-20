@@ -8,4 +8,7 @@
   .nav-height {
     @apply h-[calc(100svh-88px)];
   }
+  .min-nav-height {
+    @apply min-h-[calc(100svh-88px)];
+  }
 }
