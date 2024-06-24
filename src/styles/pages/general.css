@@ -16,3 +16,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   border: 1px solid #6e6c6b;
 }
+
+/* img {
+  filter: sepia(10%);
+} */

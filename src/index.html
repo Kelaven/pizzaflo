@@ -85,9 +85,9 @@
         <!-- TODO: optimize img for iPads -->
         <picture class="absolute z-0 h-full w-full">
           <!-- for portrait mobile : -->
-          <source media="(max-width: 640px)" srcset="/assets/img/hero-portrait-light-40.jpg">
+          <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-portrait-light-40.jpg">
           <!-- for desktop : -->
-          <img class="object-cover h-full w-full" src="/assets/img/hero-paysage-60.jpg"
+          <img class="object-cover h-full w-full" src="/assets/img/cn18/hero-paysage-60.jpg"
             alt="photo de pizza savoyarde cuite au feu de bois">
         </picture>
         <div class="absolute z-1 bg-overlay-black opacity-70 h-full w-full"></div>
@@ -137,7 +137,7 @@
       <div id="storyTelling__container-responsive-size"
         class="flex-1 order-2 xl:order-1 xl:flex xl:items-center xl:h-4/5 xl:ps-14">
         <img id="storyTelling__responsive-size" class="p-6 h-full w-full object-cover"
-          src="/assets/img/toreplace/old-truck.png" alt="">
+          src="/assets/img/toreplace/old-truck.png" alt="Photo d'un vieux Food Truck typique" loading="lazy">
       </div>
       <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:h-4/5 xl:pe-14 xl:ps-6">
         <div class="h-full px-6 xl:px-0 xl:py-6 text-container">
@@ -199,16 +199,16 @@
         <div class="h-1/2">
           <!-- TODO: mettre vraie vidéo, filtre lightroom et optimiser -->
           <img class="object-cover h-full w-full" src="/assets/img/toreplace/wood-fire.png"
-            alt="Vidéo de cuisson au feu de bois dans le four d'un Food Truck">
+            alt="Vidéo de cuisson au feu de bois dans le four d'un Food Truck" loading="lazy">
         </div>
-        <div class="h-1/2 flex gap-1">
+        <div id="expertise__smooth-scroll" class="h-1/2 flex gap-1">
           <div class="mt-1 flex-1">
-            <img class="object-cover h-full w-full" src="/assets/img/toreplace/pizza-savoyarde.png"
-              alt="Photo d'une pizza savoyarde artisanale">
+            <img class="object-cover object-bottom h-full w-full" src="/assets/img/cn18/pizza-savoyarde-80.jpg"
+              alt="Photo d'une pizza savoyarde artisanale" loading="lazy">
           </div>
           <div class="mt-1 flex-1">
-            <img class="object-cover h-full w-full" src="/assets/img/toreplace/pizza-pirate.png"
-              alt="Photo d'une pizza pirate artisanale">
+            <img class="object-cover h-full w-full" src="/assets/img/cn18/pizza-pirate-80.jpg"
+              alt="Photo d'une pizza pirate artisanale" loading="lazy">
           </div>
         </div>
       </div>
@@ -257,6 +257,12 @@
       </div>
     </section>
 
+    <!-- ! next section -->
+    <section
+      class="min-nav-height xl:nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center vintage-effect">
+
+    </section>
+
   </main>
 
   <footer>
@@ -267,6 +273,9 @@
   <script type="module" src="./index.js"></script>
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/dce61209e7.js" crossorigin="anonymous"></script>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <!-- ? Tailwind elements -->
   <!-- <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script> -->
 </body>

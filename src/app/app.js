@@ -1,4 +1,4 @@
 import "../styles/index.css";
-import { log } from "./features/a.js";
+import { log } from "./features/expertise.js";
 
 log();
