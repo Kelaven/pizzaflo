@@ -1,0 +1,52 @@
+/* animate noise */
+.vintage-effect {
+  position: relative; /* permet à l’élément de .vintage-effect de servir de référence pour les pseudo-éléments ::before et ::after qui sont positionnés de manière absolue */
+  overflow: hidden;
+}
+.vintage-effect::before,
+.vintage-effect::after {
+  content: "";
+  position: absolute;
+  /* étendre les pseudo-éléments pour qu’ils couvrent toute la surface de l’élément parent : */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* empêche les pseudo-éléments d’interférer avec les interactions de l’utilisateur, comme les clics ou les survols */
+  z-index: 1;
+}
+.vintage-effect::before {
+  background: url("/assets/img/noise.png");
+  opacity: 0.2;
+  mix-blend-mode: multiply; /* mélange l’image de bruit avec le contenu en dessous, créant un effet de texture. */
+  animation: noise 0.6s steps(10) infinite; /* applique une animation pour donner l’impression que le bruit est en mouvement. steps() est utilisé pour créer un effet de mouvement saccadé : l’animation se fait en 10 étapes discrètes. Cela signifie que l’image de fond se déplace de manière saccadée au lieu de fluide */
+}
+/* .vintage-effect::after {
+    background: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+  } */
+@keyframes noise {
+  /* change la position de l’image de bruit pour simuler un effet de mouvement */
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+.text-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* resize img */
+@media (min-width: 640px) and (max-width: 1280px) {
+  #storyTelling__container-responsive-size {
+    display: flex;
+    justify-content: center;
+  }
+  #storyTelling__responsive-size {
+    max-width: 600px;
+    max-height: 600px;
+  }
+}

@@ -1,0 +1,18 @@
+/* ! General */
+/* ? Scroll behavior */
+/* html {
+  scroll-behavior: smooth;
+} */
+
+/* Scroll bar */
+body::-webkit-scrollbar {
+  background-color: #222222;
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #222222;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 1px solid #6e6c6b;
+}

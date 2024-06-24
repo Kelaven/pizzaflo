@@ -1,4 +1,7 @@
-@import "./style.css";
+@import "./pages/general.css";
+@import "./pages/homepage/hero.css";
+@import "./pages/homepage/storyTelling.css";
+@import "./pages/homepage/expertise.css";
 
 @tailwind base;
 @tailwind components;
