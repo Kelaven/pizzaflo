@@ -23,14 +23,29 @@
   <!-- favicon, title, css, fonts et CDN -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <title>Pizza Flo - Artisan Pizzaiolo en Food Truck - HDF, IDF, CA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet"
+      type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap"
+      type="text/css" />
+  </noscript>
 </head>
 
 <body>
 
+  <!-- ! Navbar -->
   <header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-break-black text-sm py-4">
     <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
       <div class="flex items-center justify-between">
@@ -84,10 +99,13 @@
       <div class="h-full relative">
         <!-- TODO: optimize img for iPads -->
         <picture class="absolute z-0 h-full w-full">
-          <!-- for portrait mobile : -->
+          <!-- * for portrait mobile : -->
+          <!-- pour couvrir 940px de hauteur par exemple pour iPhone 14 pro max : -->
+          <source media="(max-width: 535px)" srcset="/assets/img/cn18/hero-mobile-535-50.webp" type="image/webp">
+          <!-- pour couvrir jusqu'au breakpoint tailwind : -->
           <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-50.webp" type="image/webp">
           <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-80.jpg" type="image/jpeg">
-          <!-- for desktop : -->
+          <!-- * for desktop : -->
           <source srcset="/assets/img/cn18/hero-desktop-50.webp" type="image/webp">
           <img class="object-cover h-full w-full" src="/assets/img/cn18/hero-desktop-80.jpg"
             alt="Photo de pizza savoyarde cuite au feu de bois">
@@ -205,12 +223,18 @@
         </div>
         <div id="expertise__smooth-scroll" class="h-1/2 flex gap-1">
           <div class="mt-1 flex-1">
-            <img class="object-cover object-bottom h-full w-full" src="/assets/img/cn18/pizza-savoyarde-80.jpg"
-              alt="Photo d'une pizza savoyarde artisanale" loading="lazy">
+            <picture>
+              <source srcset="/assets/img/cn18/pizza-savoyarde-75.webp" type="image/webp">
+              <img class="object-cover object-bottom h-full w-full" src="/assets/img/cn18/pizza-savoyarde-80.jpg"
+                alt="Photo d'une pizza savoyarde artisanale" loading="lazy">
+            </picture>
           </div>
           <div class="mt-1 flex-1">
-            <img class="object-cover h-full w-full" src="/assets/img/cn18/pizza-pirate-80.jpg"
-              alt="Photo d'une pizza pirate artisanale" loading="lazy">
+            <picture>
+              <source srcset="/assets/img/cn18/pizza-pirate-75.webp" type="image/webp">
+              <img class="object-cover h-full w-full" src="/assets/img/cn18/pizza-pirate-80.jpg"
+                alt="Photo d'une pizza pirate artisanale" loading="lazy">
+            </picture>
           </div>
         </div>
       </div>
