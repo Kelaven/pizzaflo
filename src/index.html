@@ -85,10 +85,12 @@
         <!-- TODO: optimize img for iPads -->
         <picture class="absolute z-0 h-full w-full">
           <!-- for portrait mobile : -->
-          <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-portrait-light-40.jpg">
+          <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-50.webp" type="image/webp">
+          <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-80.jpg" type="image/jpeg">
           <!-- for desktop : -->
-          <img class="object-cover h-full w-full" src="/assets/img/cn18/hero-paysage-60.jpg"
-            alt="photo de pizza savoyarde cuite au feu de bois">
+          <source srcset="/assets/img/cn18/hero-desktop-50.webp" type="image/webp">
+          <img class="object-cover h-full w-full" src="/assets/img/cn18/hero-desktop-80.jpg"
+            alt="Photo de pizza savoyarde cuite au feu de bois">
         </picture>
         <div class="absolute z-1 bg-overlay-black opacity-70 h-full w-full"></div>
         <div class="h-full w-full absolute z-2 flex flex-col">
