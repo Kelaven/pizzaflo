@@ -1,0 +1,20 @@
+/* resizing cards */
+.customers__img-resize {
+  max-height: 40vh !important;
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .customers__container--card-resize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .customers__card-resize {
+    max-width: 70%;
+  }
+}
+
+/* for vintage effect */
+.customers__text-container {
+  position: relative;
+  z-index: 2;
+}

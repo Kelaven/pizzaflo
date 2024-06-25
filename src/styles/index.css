@@ -2,6 +2,7 @@
 @import "./pages/homepage/hero.css";
 @import "./pages/homepage/storyTelling.css";
 @import "./pages/homepage/expertise.css";
+@import "./pages/homepage/customers.css";
 
 @tailwind base;
 @tailwind components;

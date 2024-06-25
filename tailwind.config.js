@@ -41,6 +41,7 @@ export default {
       screens: {
         'max-md-sm': { 'max': '390px' },
         'max-sm': { 'max': '640px' },
+        'max-lg': { 'max': '1024px' },
       },
       width: {
         '10.5/12': '85%',

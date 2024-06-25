@@ -1,8 +1,8 @@
 /* ! General */
 /* ? Scroll behavior */
-/* html {
+html {
   scroll-behavior: smooth;
-} */
+}
 
 /* Scroll bar */
 body::-webkit-scrollbar {
