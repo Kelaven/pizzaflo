@@ -15,6 +15,10 @@ export function animateCardsModal() {
             previews[index].classList.add('active');
         }, 1500);
 
+        // setTimeout(() => {
+        // body.classList.add('no-scroll');
+        // }, 1900);
+
         const tl = gsap.timeline({
             defaults: { duration: 1, ease: 'power3.inOut' }
         });
@@ -27,6 +31,9 @@ export function animateCardsModal() {
 
     // Fonction pour fermer l'élément
     const closeItem = (index) => {
+        // setTimeout(() => {
+        //     body.classList.remove('no-scroll');
+        // }, 1200);
         const tl = gsap.timeline({
             defaults: { duration: 1, ease: 'power3.inOut' }
         });
