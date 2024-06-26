@@ -22,7 +22,9 @@ const overlays = document.querySelector('.overlay');
 const openItem = (index) => {
     // Assurez-vous que la section previews est visible avant l'animation
     document.querySelector('.previews').style.display = 'block';
-    previews[index].classList.add('active');
+    setTimeout(() => {
+        previews[index].classList.add('active');
+    }, 1500);
 
     const tl = gsap.timeline({
         defaults: { duration: 1, ease: 'power3.inOut' }
