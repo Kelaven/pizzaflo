@@ -9,8 +9,8 @@ export function smoothScale() {
     gsap.to(img, {
       scrollTrigger: {
         trigger,
-        start: "top 70%",
-        end: "bottom 20%",
+        // start: "top 70%",
+        // end: "bottom 20%",
         // markers: true,
         scrub: 5.5 // to reverse and animate during scrolling, not just at once
       },

@@ -18,3 +18,64 @@
   position: relative;
   z-index: 2;
 }
+.previews__imgs {
+  width: 150px;
+  height: 150px;
+}
+/* cards opening */
+/* Superposition */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  pointer-events: none;
+  z-index: 10;
+}
+.overlay__row {
+  background: rgba(0, 0, 0, 1);
+  transform: scaleY(0);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Prévisualisations */
+.previews {
+  display: none;
+}
+.preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+}
+.preview.active {
+  pointer-events: auto; /* Ajouter cette ligne */
+}
+.preview__img-inner {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+.oh {
+  position: relative;
+  overflow: hidden;
+}
+.oh__inner {
+  display: inline-block;
+  transform: translateY(100%);
+  will-change: transform;
+}
