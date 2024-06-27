@@ -423,6 +423,85 @@
       </div>
     </section>
 
+    <!-- ! Contact -->
+    <section class="min-nav-height xl:nav-height bg-overlay-black flex flex-col xl:px-14 xl:flex-row xl:items-center">
+      <div class="px-6 xl:py-6">
+        <div class="py-8 xl:pt-0">
+          <h2 class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start">Envoyez-moi un
+            Message
+          </h2>
+        </div>
+        <div>
+          <p class="text-white font-openSans text-justify">Phasellus ac nisi ut nunc scelerisque commodo. Nulla
+            facilisi.
+            Ut nec metus ac tortor auctor convallis. Integer ut urna in lorem interdum pharetra at ac magna. Vivamus
+            vehicula maximus tellus a luctus. Nam finibus metus a felis bibendum, sit amet vulputate odio pulvinar. 
+          </p>
+        </div>
+        <div class="bg-amber-200 flex w-full flex-col lg:flex-row lg:items-center contact__container">
+          <form class="flex-1 py-8 rounded-md space-y-4 w-full max-w-lg lg:max-w-none">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="py-1">
+                <label for="name" class="text-white font-openSans">Nom et prénom*</label>
+                <input placeholder="Antoine Dupont" type="text" id="name" name="name"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
+                  required>
+              </div>
+              <div class="py-1">
+                <label for="email" class="text-white font-openSans">Mail*</label>
+                <input placeholder="antoine.dupont@gmail.com" type="email" id="email" name="email"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
+                  required>
+              </div>
+              <div class="py-1">
+                <label for="phone" class="text-white font-openSans">Téléphone*</label>
+                <input placeholder="0650149850" type="tel" id="phone" name="phone"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
+                  required>
+              </div>
+              <div class="py-1">
+                <label for="location" class="text-white font-openSans">Lieu de l'évènement</label>
+                <input placeholder="Laon (Aisne)" type="text" id="location" name="location"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm">
+              </div>
+              <div class="py-1 relative">
+                <label for="date" class="text-white font-openSans">Date de l’évènement</label>
+                <input type="date" id="date" name="date"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm">
+              </div>
+              <div class="py-1">
+                <label for="guests" class="text-white font-openSans">Nombre d’invités</label>
+                <input placeholder="40" type="number" id="guests" name="guests"
+                  class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm">
+              </div>
+            </div>
+            <div class="py-1">
+              <label for="message" class="text-white font-openSans">Message*</label>
+              <textarea placeholder="Bonjour !" id="message" name="message" rows="4"
+                class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
+                required></textarea>
+            </div>
+            <div class="flex items-center py-1">
+              <input type="checkbox" id="terms" name="terms" class="mr-2" required>
+              <label for="terms" class="text-white">J'accepte les <a href="#" class="underline">conditions
+                  générales</a>*</label>
+            </div>
+            <div class="text-center">
+              <button type="submit"
+                class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Valider</button>
+            </div>
+          </form>
+          <div class="flex-1 pb-6 lg:ps-6 lg:pb-0 lg:flex lg:justify-end">
+            <picture>
+              <source srcset="/assets/img/cn18/pizza-pirate-75.webp" type="image/webp">
+              <img class="object-cover " src="/assets/img/cn18/pizza-pirate-80.jpg"
+                alt="Photo d'une pizza pirate artisanale">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
   </main>
 
