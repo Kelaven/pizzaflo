@@ -46,6 +46,9 @@ export default {
       width: {
         '10.5/12': '85%',
       },
+      height: {
+        '540px': '540px',
+      }
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",
       // },

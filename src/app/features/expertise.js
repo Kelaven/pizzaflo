@@ -12,7 +12,7 @@ export function smoothScale() {
       scrollTrigger: {
         trigger: trigger,
         start: "top 70%",
-        end: "bottom 20%",
+        // end: "bottom 20%",
         // markers: true,
         scrub: 5.5 // to reverse and animate during scrolling, not just at once
       },
