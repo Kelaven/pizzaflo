@@ -226,14 +226,14 @@
             <picture>
               <source srcset="/assets/img/cn18/pizza-savoyarde-75.webp" type="image/webp">
               <img class="object-cover object-bottom h-full w-full" src="/assets/img/cn18/pizza-savoyarde-80.jpg"
-                alt="Photo d'une pizza savoyarde artisanale" loading="lazy">
+                alt="Photo d'une pizza savoyarde artisanale">
             </picture>
           </div>
           <div class="mt-1 flex-1">
             <picture>
               <source srcset="/assets/img/cn18/pizza-pirate-75.webp" type="image/webp">
               <img class="object-cover h-full w-full" src="/assets/img/cn18/pizza-pirate-80.jpg"
-                alt="Photo d'une pizza pirate artisanale" loading="lazy">
+                alt="Photo d'une pizza pirate artisanale">
             </picture>
           </div>
         </div>
@@ -296,7 +296,7 @@
 
         <div
           class="customers__card-resize grid rounded-md max-lg:p-6 shadow-sm divide-y overflow-hidden lg:flex lg:divide-y-0 lg:divide-x">
-          <!-- Card 1 -->
+          <!-- * Card 1 -->
           <div class="flex flex-col flex-[1_0_0%] bg-break-black max-lg:rounded-t-md">
             <picture>
               <img class="customers__img-resize object-cover w-full h-auto rounded-t-md sm:rounded-se-none"
@@ -318,7 +318,7 @@
             </div>
           </div>
 
-          <!-- Card 2 -->
+          <!-- * Card 2 -->
           <div class="flex flex-col flex-[1_0_0%] bg-break-black">
             <picture>
               <img class="customers__img-resize object-cover w-full h-auto rounded-t-md sm:rounded-se-none"
@@ -340,7 +340,7 @@
             </div>
           </div>
 
-          <!-- Card 3 -->
+          <!-- * Card 3 -->
           <div class="flex flex-col flex-[1_0_0%] bg-break-black max-lg:rounded-b-md">
             <picture>
               <img class="customers__img-resize object-cover w-full h-auto rounded-t-md sm:rounded-se-none"
@@ -362,14 +362,16 @@
           </div>
         </div>
 
-        <!-- Overlay and Previews -->
+        <!-- * Overlay and Previews -->
         <div class="overlay">
+          <!-- chaque div .overlay__row représente une moitié de l’écran. Avoir deux divs permet de contrôler indépendamment chacune des moitiés lors de l’animation -->
           <div class="overlay__row"></div>
           <div class="overlay__row"></div>
         </div>
 
         <div class="previews">
-          <div class="preview" id="preview-1">
+          <!-- * card 1 preview -->
+          <div class="preview">
             <div class="preview__img">
               <div class="preview__img-inner" style="background-image:url('img/1_big.jpg')"></div>
             </div>
@@ -380,17 +382,18 @@
                   Food • Parc
                   Asterix • Machin Truc • Bidule Chouette</span></span>
             </div>
-            <div class="flex">
-              <img class="previews__imgs" src="assets/img/toreplace/obelix.png" alt="">
-              <img class="previews__imgs" src="assets/img/toreplace/old-truck.png" alt="">
-              <img class="previews__imgs" src="assets/img/toreplace/pizza-pirate.png" alt="">
-              <img class="previews__imgs" src="assets/img/toreplace/tv.png" alt="">
-              <img class="previews__imgs" src="assets/img/toreplace/wedding.png" alt="">
+            <div class="oh"><span class="flex oh__inner">
+                <img class="previews__imgs" src="assets/img/toreplace/obelix.png" alt="" loading="lazy">
+                <img class="previews__imgs" src="assets/img/toreplace/old-truck.png" alt="" loading="lazy">
+                <img class="previews__imgs" src="assets/img/toreplace/pizza-pirate.png" alt="" loading="lazy">
+                <img class="previews__imgs" src="assets/img/toreplace/tv.png" alt="" loading="lazy">
+                <img class="previews__imgs" src="assets/img/toreplace/wedding.png" alt="" loading="lazy">
+              </span>
             </div>
-            <button class="text-white preview__back">Retour</button>
+            <button class="text-white preview__back oh"><span class="oh__inner">Retour</span></button>
           </div>
-
-          <div class="preview" id="preview-2">
+          <!-- * card 2 preview -->
+          <div class="preview">
             <div class="preview__img">
               <div class="preview__img-inner" style="background-image:url('img/2_big.jpg')"></div>
             </div>
@@ -403,8 +406,8 @@
             </div>
             <button class="text-white preview__back">Retour</button>
           </div>
-
-          <div class="preview" id="preview-3">
+          <!-- * card 3 preview -->
+          <div class="preview">
             <div class="preview__img">
               <div class="preview__img-inner" style="background-image:url('img/3_big.jpg')"></div>
             </div>

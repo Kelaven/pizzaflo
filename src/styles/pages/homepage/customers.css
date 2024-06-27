@@ -1,8 +1,7 @@
-/* resizing cards */
+/* ! resizing cards */
 .customers__img-resize {
   max-height: 40vh !important;
 }
-
 @media (min-width: 640px) and (max-width: 1024px) {
   .customers__container--card-resize {
     display: flex;
@@ -14,46 +13,49 @@
   }
 }
 
-/* for vintage effect */
+/* ! for vintage effect */
 .customers__text-container {
   position: relative;
   z-index: 2;
 }
 
+/* ! cards opening */
+/* **** taille des imgs dans les previews **** */
 .previews__imgs {
   width: 150px;
   height: 150px;
   height: auto;
 }
-
-/* cards opening */
-/* Superposition */
+/* **** overlay's superposition **** */
 .overlay {
+  /* positionner l’élément relativement à la fenêtre du navigateur. L’élément reste fixe même lors du défilement de la page : */
   position: fixed;
   top: 0;
   left: 0;
+  /* l'overlay couvre tout l'écran : */
   width: 100%;
   height: 100%;
+  /* utiliser une grille CSS pour diviser l’overlay en deux rangées égales. De ce fait, il est garanti que chaque div .overlay__row occupe exactement la moitié de l’espace : */
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  pointer-events: none;
+  grid-template-rows: 1fr 1fr; /* lorsqu’on utilise display: grid et grid-template-rows: 1fr 1fr sur un élément parent, comme .overlay, chaque élément enfant de ce conteneur de grille est automatiquement dimensionné selon les lignes définies par le modèle de grille. Les éléments enfants n’ont pas besoin de propriétés CSS spécifiques pour occuper ces fractions; ils le font par défaut.  */
+  pointer-events: none; /* désactive les événements de pointeur pour l’élément .overlay (l’overlay ne captera pas les clics, les survols, ou toute autre interaction utilisateur) : Lorsque l’animation de l’overlay est en cours (les bandes noires couvrent l’écran), nous ne voulons pas que les utilisateurs puissent interagir avec les éléments derrière l’overlay */
   z-index: 10;
 }
-
 .overlay__row {
   background: rgba(0, 0, 0, 1);
+  /* réduire la hauteur de chaque rangée à 0 sur l'axe Y pour les rendre invisibles : */
   transform: scaleY(0);
-  transform-origin: center;
-  will-change: transform;
+  /* transform-origin: center; */ /* ? défini le point d’origine de la transformation (le centre de chaque rangée). C'est pas oligatoire car le JS redéfinit cela mais c'est une sécurité si GSAP ne fonctionne pas. */
+  will-change: transform; /* 	Indique au navigateur que l’élément subira des transformations. Cela aide le navigateur à optimiser le rendu et à améliorer les performances des animations en préparant à l’avance les changements. */
 }
 
-/* Prévisualisations */
+/* **** previews **** */
 .previews {
+  /* initialement cacher les previews */
   display: none;
 }
-
 .preview {
-  position: fixed; /* Changed from absolute to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -67,19 +69,18 @@
   opacity: 0;
   pointer-events: none;
 }
-
 .preview.active {
+  /* initialement les previews sont cachées et non interactives (voir classe d'au-dessus). Il faut les rendre cliquables quand elles sont affichées */
   pointer-events: auto;
-  opacity: 1; /* Ensure it's fully visible when active */
+  /* opacity: 1; */ /* ? règle appliquée avec GSAP */
 }
-
 .preview__img-inner {
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100%;
 }
-
+/* responsivité */
 @media (max-width: 768px) {
   .preview {
     height: 100svh;
@@ -92,18 +93,20 @@
   }
 }
 
+/* **** animations **** */
 .oh {
   position: relative;
   overflow: hidden;
 }
-
 .oh__inner {
-  display: inline-block;
+  display: inline-block; /* les éléments inline-block restent dans le flux du texte, ce qui signifie qu’ils se comportent comme des éléments en ligne en termes de placement mais peuvent avoir des dimensions comme des éléments de bloc (donc on peut modifier leur placement, taille etc.) */
+  /* déplacer l’élément de 100% de sa propre hauteur vers le bas, le rendant initialement hors de la vue : */
   transform: translateY(100%);
   will-change: transform;
 }
 
-.no-scroll {
-  overflow: hidden;
-  /* padding-right: 10px; */
-}
+/* ? à utiliser dans le script pour la scrollbar dans les previews */
+/* .no-scroll {
+  overflow: hidden; */
+/* padding-right: 10px; */
+/* } */
