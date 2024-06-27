@@ -16,7 +16,7 @@ const changeTypeToText = () => {
 // Evenement
 export const eventDatePlaceholder = () => {
 
-    dateInput.addEventListener("focus", changeTypeToDate);
+    dateInput.addEventListener("focus", changeTypeToDate); // focus fonctionne quand on entre dans l'input
 
     dateInput.addEventListener("change", () => { // change fonctionne quand on change la valeur
         if (dateInput.value) {
