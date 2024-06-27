@@ -39,7 +39,7 @@
   z-index: 2;
 }
 
-/* resize img */
+/* resize img (cibler les tablettes) */
 @media (min-width: 640px) and (max-width: 1280px) {
   #storyTelling__container-responsive-size {
     display: flex;

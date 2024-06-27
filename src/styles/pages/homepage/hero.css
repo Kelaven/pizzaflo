@@ -57,3 +57,10 @@
     opacity: 0.3;
   }
 }
+
+/* cibler tous les téléphones en mode paysage (pour ne pas couper les éléments) */
+@media screen and (max-width: 950px) and (orientation: landscape) {
+  #hero__section {
+    min-height: 200vh;
+  }
+}
