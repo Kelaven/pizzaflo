@@ -87,3 +87,4 @@ export function animateCardsModal() {
 
 // Correspondance entre les cartes et les prévisualisations
     // Dans le code HTML et JavaScript, il y a un mécanisme implicite pour faire correspondre les cards et les previews. La correspondance repose sur l’index des éléments dans les collections previews et links (l'ordre des éléments dans le DOM est donc primordial). La correspondance entre les cards et les previews est donc automatique car les deux collections links et previews sont itérées avec le même index index.
+    // Les fonctions récupèrent l'index grâce aux closures (capture des variables de leur environnement lexical).
