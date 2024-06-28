@@ -38,6 +38,9 @@ export default {
         'normal-md': '0.0125em',
         'wide-md': '.04em',
       },
+      spacing: {
+        '15': '3.75rem',
+      },
       screens: {
         'max-md-sm': { 'max': '390px' },
         'max-sm': { 'max': '640px' },
@@ -48,6 +51,7 @@ export default {
       },
       height: {
         '540px': '540px',
+        '88px': '88px',
       }
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",

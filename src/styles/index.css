@@ -4,6 +4,7 @@
 @import "./pages/homepage/expertise.css";
 @import "./pages/homepage/customers.css";
 @import "./pages/homepage/contact.css";
+@import "./pages/homepage/footer.css";
 
 @tailwind base;
 @tailwind components;

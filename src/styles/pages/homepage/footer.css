@@ -1,0 +1,10 @@
+.fa-facebook,
+.fa-instagram {
+  color: white;
+}
+@media (min-width: 1280px) {
+  .fa-facebook,
+  .fa-instagram {
+    font-size: 3em !important;
+  }
+}
