@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{html,js,css}",
+    "./src/**/*.{html,js,css,php}",
     // "./node_modules/tw-elements/js/**/*.js",
     'node_modules/preline/dist/*.js',
   ],

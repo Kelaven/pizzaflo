@@ -1,7 +1,10 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+// import phpPlugin from 'vite-plugin-php';
+// import usePHP from 'vite-plugin-php';
 
 export default defineConfig({
+  root: "src",
   plugins: [
     viteStaticCopy({
       targets: [
@@ -9,14 +12,13 @@ export default defineConfig({
           src: 'robots.txt',
           dest: '.'
         },
-        // {
-        //   src: 'node_modules/preline/dist/preline.js',
-        //   dest: 'assets/js' // Vous pouvez choisir le répertoire de destination souhaité
-        // }
       ]
-    })
+    }),
+    // phpPlugin(),
+    // usePHP({
+    //   entry: ['src/**/*.php'],
+    // }),
   ],
-  root: "src",
   build: {
     outDir: "../dist", // Où Vite construira les fichiers de production
     rollupOptions: {
@@ -25,6 +27,18 @@ export default defineConfig({
       },
     },
   },
+  // server: {
+  //   // port: 3000,
+  //   proxy: {
+  //     '/index.php': {
+  //       // Change the URL according to your local web server environment
+  //       target: 'http://localhost/pizzaflo/src/',
+  //       changeOrigin: true,
+  //       secure: false,
+  //     },
+  //     // Include other *.php sources called from your web app if necessary
+  //   }
+  // },
   optimizeDeps: {
     include: ['preline']
   },

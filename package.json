@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "vite": "^5.2.0",
+    "vite-plugin-php": "^1.0.20",
     "vite-plugin-static-copy": "^1.0.5"
   },
   "dependencies": {
