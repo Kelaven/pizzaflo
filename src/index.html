@@ -1,4 +1,5 @@
 <!-- TODO: optimiser robots.txt -->
+<!-- TODO: revoir nav-height car coupe les éléments en réduisant la fenetre + taille des images à passer fixe ou leur div parent à h-50 et gp à flex w-full items-center (voir projet apple) -->
 
 <!doctype html>
 <html lang="fr">
@@ -477,11 +478,12 @@
                         Ut nec metus ac tortor auctor convallis. Integer ut urna in lorem interdum pharetra at ac magna.
                         Vivamus
                         vehicula maximus tellus a luctus. Nam finibus metus a felis bibendum, sit amet vulputate odio
-                        pulvinar. 
+                        pulvinar.
                     </p>
                 </div>
                 <div class="flex w-full flex-col lg:flex-row lg:items-center contact__container">
-                    <form class="flex-1 py-8 rounded-md space-y-4 w-full max-w-lg lg:max-w-none">
+                    <form novalidate id="form" method="POST"
+                        class="flex-1 py-8 rounded-md space-y-4 w-full max-w-lg lg:max-w-none">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Name -->
                             <div class="py-1">

@@ -27,18 +27,17 @@ export default defineConfig({
       },
     },
   },
-  // server: {
-  //   // port: 3000,
-  //   proxy: {
-  //     '/index.php': {
-  //       // Change the URL according to your local web server environment
-  //       target: 'http://localhost/pizzaflo/src/',
-  //       changeOrigin: true,
-  //       secure: false,
-  //     },
-  //     // Include other *.php sources called from your web app if necessary
-  //   }
-  // },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8081",
+        changeOrigin: true,
+        secure: false, // Désactivation de la vérification SSL en développement
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+    },
+    cors: false
+  },
   optimizeDeps: {
     include: ['preline']
   },
