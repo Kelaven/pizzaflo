@@ -1,7 +1,7 @@
 export function smoothScale() {
   const trigger = document.querySelector("#expertise__smooth-scroll");
   const imgs = document.querySelectorAll("#expertise__smooth-scroll img")
-  console.log(imgs);
+  // console.log(imgs);
 
 
 

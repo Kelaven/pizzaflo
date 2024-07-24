@@ -1,5 +1,4 @@
 export function formAPI() {
-    console.log(form);
 
 
     form.addEventListener('submit', async (event) => {
@@ -29,8 +28,8 @@ export function formAPI() {
             if (result.success) {
                 console.log(result);
             }
-        } catch {
-            console.error('Failed');
+        } catch (error) {
+            console.error(error);
         }
     });
 

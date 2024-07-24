@@ -5,12 +5,12 @@ const dateInput = document.querySelector("#date");
 const changeTypeToDate = () => {
     dateInput.type = 'date';
     dateInput.placeholder = ''; // Supprimer le placeholder
-    console.log('Type changé en date:', dateInput, dateInput.value);
+    // console.log('Type changé en date:', dateInput, dateInput.value);
 }
 const changeTypeToText = () => {
     dateInput.type = 'text';
     dateInput.placeholder = '01/01/2024'; // Supprimer le placeholder
-    console.log('Type changé en text:', dateInput);
+    // console.log('Type changé en text:', dateInput);
 }
 
 // Evenement
@@ -43,7 +43,7 @@ export const eventDatePlaceholder = () => {
             alert("Veuillez entrer une date valide.");
         }
     });
-    console.log(dateInput);
+    // console.log(dateInput);
 };
 
 // Comments
