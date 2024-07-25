@@ -3,9 +3,27 @@ header('Content-Type: application/json');
 
 require_once __DIR__ . '/config/regex.php';
 
+require_once __DIR__ . '/../vendor/autoload.php'; // for php mailer
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// TODO: débugguer POST en utilisant le tableau $data
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupérer les données JSON du flux d'entrée brut
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+    var_dump($data);
+    exit;
+
+    // Vérifier si les données JSON sont correctement décodées
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(["success" => false, "message" => "Invalid JSON data"]);
+        exit;
+    }
+
     $error = [];
     $data = [];
 
@@ -60,6 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation de la date
+    var_dump($location);
+    exit;
     $date = htmlspecialchars($_POST['date'], ENT_QUOTES, 'UTF-8');
     if (!empty($date)) {
         $regexDate = '/^\d{2}\/\d{2}\/\d{4}$/';
@@ -104,12 +124,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($error)) {
-        // TODO : Traitement des données (envoyer le mail)
+        // Envoi de l'email avec PHPMailer
+        $mailer = new PHPMailer(true);
+        try {
+            // Configuration du serveur
+            //TODO: vérifier l’hôte, le port, le nom d’utilisateur et le mot de passe 
+            $mailer->setLanguage('fr');
+            $mailer->isSMTP();
+            $mailer->SMTPAuth   = true;
+            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mailer->Port       = 587;
+            $mailer->Host       = 'smtp.gmail.com';
+            // * $mailer->Username   = 'jclavenant@pizza-flo.com';
+            $mailer->Username   = 'kevin.lavenant.photographies@gmail.com';
+            $mailer->Password   = '';
 
+            // Configuration du mode debug
+            $mailer->SMTPDebug  = 2; // Affiche les informations détaillées (débuggage)
+            $mailer->Debugoutput = 'html'; // Affiche les informations de debug sous forme de HTML
 
+            // Expéditeur et Destinataire
+            $mailer->setFrom($data['email'], $data['name']);
+            // * $mailer->addAddress('jclavenant@pizza-flo.com', 'Pizza Flo');
+            $mailer->addAddress('kevin.lavenant.photographies@gmail.com');
 
+            // Contenu
+            $mailer->Subject = 'Nouvelle demande de contact';
+            $mailer->Body    = "Nom: {$data['name']}\nEmail: {$data['email']}\nTéléphone: {$data['phone']}\nLocalisation: {$data['location']}\nDate: {$data['date']}\nNombre d'invités: {$data['guests']}\nMessage: {$data['message']}";
+            $mailer->AltBody = "Nom: {$data['name']}\nEmail: {$data['email']}\nTéléphone: {$data['phone']}\nLocalisation: {$data['location']}\nDate: {$data['date']}\nNombre d'invités: {$data['guests']}\nMessage: {$data['message']}";
 
-        echo json_encode(["success" => true, "message" => "Data received and processed"]);
+            $mailer->send();
+
+            echo json_encode(["success" => true, "message" => "Votre demande a bien été envoyée !"]);
+        } catch (Exception $e) {
+            echo json_encode(["success" => false, "message" => "Le message n'a pas pu être envoyé. Erreur: {$mailer->ErrorInfo}"]);
+        }
+        echo json_encode(["success" => true, "message" => "Data received and processed"]); // ? à suppr plus tard
     } else {
         echo json_encode(["success" => false, "message" => "Validation errors", "errors" => $error]);
     }
