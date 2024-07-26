@@ -8,15 +8,12 @@ require_once __DIR__ . '/../vendor/autoload.php'; // for php mailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// TODO: débugguer POST en utilisant le tableau $data
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données JSON du flux d'entrée brut
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
-    var_dump($data);
-    exit;
 
     // Vérifier si les données JSON sont correctement décodées
     if (json_last_error() !== JSON_ERROR_NONE) {
@@ -25,10 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $error = [];
-    $data = [];
+
 
     // Nettoyage et validation du nom
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    // var_dump($data['name']);
+    $name = filter_var($data['name'], FILTER_SANITIZE_SPECIAL_CHARS);
     if (empty($name)) {
         $error['name'] = 'Le nom n\'est pas renseigné';
     } else {
@@ -39,6 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data['name'] = $name;
         }
     }
+    // var_dump($error);
+    // var_dump($data['name']);
+    // exit;
 
     // Nettoyage et validation de l'email
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
