@@ -38,7 +38,7 @@ export const eventDatePlaceholder = () => {
     // Vérification front à la validation du formulaire
     const form = document.querySelector("form");
     form.addEventListener("submit", (e) => {
-        if (dateInput.type === 'text') {
+        if (dateInput.type === 'text' && dateInput.value !== "") { // && ne pas avoir l'alert quand on laisse l'input vide car la date n'est pas obligatoire
             e.preventDefault();
             alert("Veuillez entrer une date valide.");
         }

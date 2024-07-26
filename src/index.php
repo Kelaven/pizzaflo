@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation de la localisation
-    $location = filter_var($data['location'], FILTER_SANITIZE_SPECIAL_CHARS);
     if (!empty($location)) {
+        $location = filter_var($data['location'], FILTER_SANITIZE_SPECIAL_CHARS);
         $isLocationOk = filter_var($location, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_LOCATION . '/')));
         if (!$isLocationOk) {
             $error['location'] = 'La localisation doit contenir entre 2 et 60 caractères.';
@@ -90,18 +90,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation du nombre d'invités
-    $guests = filter_input(INPUT_POST, 'guests', FILTER_SANITIZE_NUMBER_INT);
-    if (!empty($guests)) {
-        $guests = filter_var($guests, FILTER_VALIDATE_INT, array("options" => array("min_range" => 1, "max_range" => 1000)));
-        if (!$guests) {
+    if (!empty($data['guests'])) {
+        $guests = filter_var($data['guests'], FILTER_SANITIZE_NUMBER_INT);
+        $isGuestsOk = filter_var($guests, FILTER_VALIDATE_INT, array("options" => array("min_range" => 1, "max_range" => 1000)));
+        $regexGuests = '/' . REGEX_GUESTS . '/';
+        if (!$isGuestsOk || !preg_match($regexGuests, $guests)) {
             $error['guests'] = 'Le nombre d\'invités doit être un nombre entier entre 1 et 1000.';
+            $data['guests'] = NULL; // pour éviter de recevoir des caractères spéciaux sous forme de chaine
         } else {
-            $data['guests'] = $guests;
+            $data['guests'] = (int)$guests; // typer pour éviter de recevoir une chaine de caractères
         }
     }
 
     // Nettoyage et validation du message
-    $message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS));
+    $message = trim(filter_var($data['message'], FILTER_SANITIZE_SPECIAL_CHARS));
     if (empty($message)) {
         $error['message'] = 'Le message n\'est pas renseigné';
     } else {
@@ -114,8 +116,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validation des termes
-    $terms = filter_input(INPUT_POST, 'terms', FILTER_SANITIZE_SPECIAL_CHARS);
-    if (empty($terms)) {
+    $terms = filter_var($data['terms'], FILTER_SANITIZE_SPECIAL_CHARS);
+    if (!$terms) {
         $error['terms'] = 'La case n\'est pas cochée';
     } else {
         $data['terms'] = $terms;
@@ -123,6 +125,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($error)) {
+        // var_dump("pas d'erreur");
+        // var_dump($data);
+        // exit;
         // Envoi de l'email avec PHPMailer
         $mailer = new PHPMailer(true);
         try {
