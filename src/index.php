@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // exit;
 
     // Nettoyage et validation de l'email
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
     if (empty($email)) {
         $error['email'] = 'L\'email n\'est pas renseigné';
     } else {
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation du téléphone
-    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+    $phone = filter_var($data['phone'], FILTER_SANITIZE_NUMBER_INT);
     if (empty($phone)) {
         $error['phone'] = 'Le téléphone n\'est pas renseigné';
     } else {
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation de la localisation
-    $location = filter_input(INPUT_POST, 'location', FILTER_SANITIZE_SPECIAL_CHARS);
+    $location = filter_var($data['location'], FILTER_SANITIZE_SPECIAL_CHARS);
     if (!empty($location)) {
         $isLocationOk = filter_var($location, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_LOCATION . '/')));
         if (!$isLocationOk) {
@@ -79,11 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation de la date
-    var_dump($location);
-    exit;
-    $date = htmlspecialchars($_POST['date'], ENT_QUOTES, 'UTF-8');
-    if (!empty($date)) {
-        $regexDate = '/^\d{2}\/\d{2}\/\d{4}$/';
+    if (!empty($data['date'])) {
+        $date = htmlspecialchars($data['date'], ENT_QUOTES, 'UTF-8');
+        $regexDate = '/' . REGEX_DATE . '/';
         if (!preg_match($regexDate, $date)) {
             $error['date'] = 'La date doit être au format jj/mm/aaaa.';
         } else {
