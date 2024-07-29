@@ -20,6 +20,7 @@ export function formAPI() {
         const guests = document.getElementById('guests').value;
         const message = document.getElementById('message').value;
         const terms = document.getElementById('terms').checked;
+        const recaptchaResponse = grecaptcha.getResponse(); // envoyer la réponse captcha au back
 
         try {
             const response = await fetch("/api", {
@@ -28,7 +29,7 @@ export function formAPI() {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                body: JSON.stringify({ name, email, phone, location, date, guests, message, terms }),
+                body: JSON.stringify({ name, email, phone, location, date, guests, message, terms, 'g-recaptcha-response': recaptchaResponse }),
             });
             const result = await response.json();
             if (result.success) {

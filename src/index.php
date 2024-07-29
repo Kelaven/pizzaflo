@@ -4,9 +4,11 @@ header('Content-Type: application/json');
 require_once __DIR__ . '/config/regex.php';
 
 require_once __DIR__ . '/../vendor/autoload.php'; // for php mailer
+require_once __DIR__ . '/../vendor/google/recaptcha/src/autoload.php'; // for captcha
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use ReCaptcha\ReCaptcha;
 
 
 
@@ -135,6 +137,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data['terms'] = $terms;
     }
 
+    // Valider le captcha
+    if (isset($data['g-recaptcha-response'])) {
+
+        $recaptcha = new ReCaptcha("SECRET");
+
+        $resp = $recaptcha->verify($data['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+        if ($resp->isSuccess()) {
+        } else {
+            $error['captcha'] = "Le captcha Google n'a pas été validé";
+            echo json_encode(["success" => false, "message" => "Le captcha Google n'a pas été validé", "errors" => $errors]);
+            exit;
+        }
+    } else {
+        $error['captcha'] = "Le captcha Google n'a pas été rempli";
+        echo json_encode(["success" => false, "message" => "Le captcha Google n'a pas été rempli"]);
+        exit;
+    }
+
 
     if (empty($error)) {
         // var_dump("pas d'erreur");
@@ -153,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailer->Host       = 'smtp.gmail.com';
             // * $mailer->Username   = 'jclavenant@pizza-flo.com';
             $mailer->Username   = 'kevin.lavenant.photographies@gmail.com';
-            $mailer->Password   = '';
+            $mailer->Password   = 'SECRET';
 
             // Configuration du mode debug
             // $mailer->SMTPDebug  = 2; // Affiche les informations détaillées (débuggage)
