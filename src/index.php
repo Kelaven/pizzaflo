@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $isEmailOk = filter_var($email, FILTER_VALIDATE_EMAIL);
         if (!$isEmailOk) {
-            $error['email'] = 'Le format de votre adresse mail n\'est pas valide';
+            $error['email'] = 'Le format de votre adresse mail n\'est pas valide.';
         } else {
             $data['email'] = $email;
         }
@@ -68,39 +68,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Nettoyage et validation de la localisation
-    if (!empty($location)) {
+    if (isset($data['location'])) {
         $location = filter_var($data['location'], FILTER_SANITIZE_SPECIAL_CHARS);
-        $isLocationOk = filter_var($location, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_LOCATION . '/')));
-        if (!$isLocationOk) {
-            $error['location'] = 'La localisation doit contenir entre 2 et 60 caractères.';
-        } else {
-            $data['location'] = $location;
+
+        if (!empty($location)) {
+            $isLocationOk = filter_var($location, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_LOCATION . '/')));
+            if (!$isLocationOk) {
+                $error['location'] = 'La localisation doit contenir entre 2 et 60 caractères.';
+            } else {
+                $data['location'] = $location;
+            }
         }
     }
 
     // Nettoyage et validation de la date
-    if (!empty($data['date'])) {
+    if (isset($data['date'])) {
         $date = htmlspecialchars($data['date'], ENT_QUOTES, 'UTF-8');
-        $regexDate = '/' . REGEX_DATE . '/';
-        if (!preg_match($regexDate, $date)) {
-            $error['date'] = 'La date doit être au format jj/mm/aaaa.';
-        } else {
-            $data['date'] = $date;
+
+        if (!empty($data['date'])) {
+            $regexDate = '/' . REGEX_DATE . '/';
+            if (!preg_match($regexDate, $date)) {
+                $error['date'] = 'La date doit être au format jj/mm/aaaa.';
+            } else {
+                $data['date'] = $date;
+            }
         }
     }
 
     // Nettoyage et validation du nombre d'invités
-    if (!empty($data['guests'])) {
+    if (isset($data['guests'])) {
         $guests = filter_var($data['guests'], FILTER_SANITIZE_NUMBER_INT);
-        $isGuestsOk = filter_var($guests, FILTER_VALIDATE_INT, array("options" => array("min_range" => 1, "max_range" => 1000)));
-        $regexGuests = '/' . REGEX_GUESTS . '/';
-        if (!$isGuestsOk || !preg_match($regexGuests, $guests)) {
-            $error['guests'] = 'Le nombre d\'invités doit être un nombre entier entre 1 et 1000.';
-            $data['guests'] = NULL; // pour éviter de recevoir des caractères spéciaux sous forme de chaine
-        } else {
-            $data['guests'] = (int)$guests; // typer pour éviter de recevoir une chaine de caractères
+
+        if (!empty($data['guests'])) {
+            $isGuestsOk = filter_var($guests, FILTER_VALIDATE_INT, array("options" => array("min_range" => 1, "max_range" => 1000)));
+            $regexGuests = '/' . REGEX_GUESTS . '/';
+            if (!$isGuestsOk || !preg_match($regexGuests, $guests)) {
+                $error['guests'] = 'Le nombre d\'invités doit être un nombre entier entre 1 et 1000.';
+                $data['guests'] = NULL; // pour éviter de recevoir des caractères spéciaux sous forme de chaine
+            } else {
+                $data['guests'] = (int)$guests; // typer pour éviter de recevoir une chaine de caractères
+            }
         }
     }
+
+
+
 
     // Nettoyage et validation du message
     $message = trim(filter_var($data['message'], FILTER_SANITIZE_SPECIAL_CHARS));
@@ -153,9 +165,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailer->addAddress('kevin.lavenant.photographies@gmail.com');
 
             // Contenu
+            $mailer->isHTML(true); // Activer le format HTML pour le corps de l'email
             $mailer->Subject = 'Nouvelle demande de contact';
-            $mailer->Body    = "Nom: {$data['name']}\nEmail: {$data['email']}\nTéléphone: {$data['phone']}\nLocalisation: {$data['location']}\nDate: {$data['date']}\nNombre d'invités: {$data['guests']}\nMessage: {$data['message']}";
-            $mailer->AltBody = "Nom: {$data['name']}\nEmail: {$data['email']}\nTéléphone: {$data['phone']}\nLocalisation: {$data['location']}\nDate: {$data['date']}\nNombre d'invités: {$data['guests']}\nMessage: {$data['message']}";
+            $mailer->Body    = "
+            <html>
+            <head>
+                <title>Nouvelle demande de contact</title>
+            </head>
+            <body>
+                <p><strong>Nom:</strong> {$data['name']}</p>
+                <p><strong>Email:</strong> {$data['email']}</p>
+                <p><strong>Téléphone:</strong> {$data['phone']}</p>
+                <p><strong>Localisation:</strong> {$data['location']}</p>
+                <p><strong>Date:</strong> {$data['date']}</p>
+                <p><strong>Nombre d'invités:</strong> {$data['guests']}</p>
+                <p><strong>Message:</strong> {$data['message']}</p>
+            </body>
+            </html>";
+            $mailer->AltBody = "Nom: {$data['name']}\r\nEmail: {$data['email']}\r\nTéléphone: {$data['phone']}\r\nLocalisation: {$data['location']}\r\nDate: {$data['date']}\r\nNombre d'invités: {$data['guests']}\r\nMessage: {$data['message']}";
 
             $mailer->send();
 

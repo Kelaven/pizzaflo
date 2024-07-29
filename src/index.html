@@ -492,6 +492,7 @@
                                 <input placeholder="Antoine Dupont" type="text" id="name" name="name"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     minlength="2" maxlength="60" required>
+                                <small id="nameError" class="text-red-500 error-message"></small>
                             </div>
                             <!-- email -->
                             <div class="py-1">
@@ -499,6 +500,7 @@
                                 <input placeholder="antoine.dupont@gmail.com" type="email" id="email" name="email"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     required>
+                                <small id="emailError" class="text-red-500 error-message"></small>
                             </div>
                             <!-- phone -->
                             <div class="py-1">
@@ -506,6 +508,7 @@
                                 <input placeholder="0650149850" type="tel" id="phone" name="phone"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     required pattern="[0-9]{10}">
+                                <small id="phoneError" class="text-red-500 error-message"></small>
                             </div>
                             <!-- event's location -->
                             <div class="py-1">
@@ -513,12 +516,14 @@
                                 <input placeholder="Laon (Aisne)" type="text" id="location" name="location"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     minlength="2" maxlength="60">
+                                <small id="locationError" class="text-red-500 error-message"></small>
                             </div>
                             <!-- event's date -->
                             <div class="py-1 relative">
                                 <label for="date" class="text-white font-openSans">Date de l’évènement</label>
                                 <input placeholder="01/01/2024" type="text" id="date" name="date"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm">
+                                <small id="dateError" class="text-red-500 error-message"></small>
                             </div>
                             <!-- guests number -->
                             <div class="py-1">
@@ -526,6 +531,7 @@
                                 <input placeholder="40" type="number" id="guests" name="guests"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     min="1" max="1000">
+                                <small id="guestsError" class="text-red-500 error-message"></small>
                             </div>
                         </div>
                         <!-- message -->
@@ -534,12 +540,15 @@
                             <textarea placeholder="Bonjour !" id="message" name="message" rows="4"
                                 class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                 required minlength="5" maxlength="1200"></textarea>
+                            <small id="messageError" class="text-red-500 error-message"></small>
                         </div>
+                        <!-- genral clauses -->
                         <div class="flex items-center py-1">
                             <input type="checkbox" id="terms" name="terms" class="mr-2" required>
                             <label for="terms" class="text-white">J'accepte les <a href="#" class="underline">conditions
                                     générales</a>*</label>
                         </div>
+                        <small id="termsError" class="text-red-500 error-message"></small>
                         <div class="text-center">
                             <button type="submit"
                                 class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Valider</button>
