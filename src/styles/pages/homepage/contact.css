@@ -3,3 +3,10 @@
     align-items: center;
   }
 }
+
+.success-text {
+  color: green !important;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}

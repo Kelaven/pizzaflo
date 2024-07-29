@@ -156,8 +156,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailer->Password   = '';
 
             // Configuration du mode debug
-            $mailer->SMTPDebug  = 2; // Affiche les informations détaillées (débuggage)
-            $mailer->Debugoutput = 'html'; // Affiche les informations de debug sous forme de HTML
+            // $mailer->SMTPDebug  = 2; // Affiche les informations détaillées (débuggage)
+            // $mailer->Debugoutput = 'html'; // Affiche les informations de debug sous forme de HTML
 
             // Expéditeur et Destinataire
             $mailer->setFrom($data['email'], $data['name']);
@@ -186,11 +186,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $mailer->send();
 
-            echo json_encode(["success" => true, "message" => "Votre demande a bien été envoyée !"]);
+            echo json_encode(["success" => true, "message" => "Votre demande a bien ete envoyee !"]);
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => "Le message n'a pas pu être envoyé. Erreur: {$mailer->ErrorInfo}"]);
         }
-        echo json_encode(["success" => true, "message" => "Data received and processed"]); // ? à suppr plus tard
+        // echo json_encode(["success" => true, "message" => "Data received and processed"]); // ? à suppr plus tard
     } else {
         echo json_encode(["success" => false, "message" => "Validation errors", "errors" => $error]);
     }

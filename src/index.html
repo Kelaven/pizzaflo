@@ -483,7 +483,7 @@
                 </div>
                 <div class="flex w-full flex-col lg:flex-row lg:items-center contact__container">
                     <!-- TODO: Ajout d’un CAPTCHA -->
-                    <form novalidate id="form" method="POST"
+                    <form id="form" method="POST"
                         class="flex-1 py-8 rounded-md space-y-4 w-full max-w-lg lg:max-w-none">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Name -->
@@ -553,6 +553,7 @@
                             <button type="submit"
                                 class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Valider</button>
                         </div>
+                        <div id="formError" class="error-message text-red-500"></div>
                     </form>
                     <div class="flex-1 pb-6 lg:ps-6 lg:pb-0 lg:flex lg:justify-end">
                         <picture>

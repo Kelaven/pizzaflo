@@ -1,5 +1,6 @@
-export function formAPI() {
+import confetti from 'canvas-confetti';
 
+export function formAPI() {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -31,8 +32,18 @@ export function formAPI() {
             });
             const result = await response.json();
             if (result.success) {
+
+                confetti({
+                    particleCount: 200,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                document.getElementById('formError').classList.add('success-text');
+                document.getElementById('formError').textContent = "Votre email a bien été envoyé !";
+
                 console.log(result);
             } else { // afficher les msgs d'erreur sur le site
+
                 if (result.errors) {
                     if (result.errors.name) {
                         document.getElementById('nameError').textContent = result.errors.name;
@@ -59,12 +70,12 @@ export function formAPI() {
                         document.getElementById('termsError').textContent = result.errors.terms;
                     }
                 } else {
-                    document.getElementById('termsError').textContent = "Il y a une erreur dans le formulaire.";
+                    document.getElementById('formError').textContent = "Une erreur s'est produite lors de la soumission du formulaire. Le mail n'a pas été envoyé.";
                 }
-
             }
         } catch (error) {
-            console.error(error);
+            console.error("Erreur lors de la soumission du formulaire: ", error);
+            document.getElementById('formError').textContent = "Une erreur s'est produite lors de la soumission du formulaire. Le mail n'a pas été envoyé.";
         }
     });
 
