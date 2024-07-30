@@ -53,7 +53,7 @@ export default {
       height: {
         '540px': '540px',
         '88px': '88px',
-      }
+      },
       // backgroundImage: {
       //   'hero': "url('/assets/img/hero-paysage-60.jpg')",
       // },

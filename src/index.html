@@ -97,8 +97,8 @@
 
     <main>
         <!-- ! Hero -->
-        <section id="hero__section" class="nav-height">
-            <div class="h-full relative">
+        <section id="hero__section min-nav-height">
+            <div class="min-nav-height relative flex flex-col">
                 <!-- TODO: optimize img for iPads -->
                 <picture class="absolute z-0 h-full w-full">
                     <!-- * for portrait mobile : -->
@@ -114,13 +114,12 @@
                         alt="Photo de pizza savoyarde cuite au feu de bois">
                 </picture>
                 <div class="absolute z-1 bg-overlay-black opacity-70 h-full w-full"></div>
-                <div class="h-full w-full absolute z-2 flex flex-col">
-                    <div class="h-4/6 w-full flex flex-col justify-center items-center md:pt-28">
+                <div class="relative z-2 flex flex-col flex-grow">
+                    <div class="flex-grow flex flex-col justify-center items-center md:pt-28">
                         <div class="w-10.5/12 flex flex-col items-center">
                             <h1
-                                class="text-center text-white font-anton max-md-sm:text-2xl text-2.5xl sm:text-4xl tracking-normal sm:tracking-wide">
-                                Artisan
-                                pizzaïolo depuis 1993 <br> <span
+                                class="text-center text-white font-anton max-md-sm:text-2xl text-2.5xl sm:text-4xl tracking-normal sm:tracking-wide max-sm:pt-2">
+                                Artisan pizzaïolo depuis 1993 <br> <span
                                     class="max-md-sm:text-7xl text-7.5xl sm:text-9xl tracking-wide-md sm:tracking-normal">PIZZA
                                     FLO</span></h1>
                             <hr class="border-t-4 border-white rounded-sm my-3 w-1/3 sm:w-1/4 lg:w-1/5 2xl:w-1/6">
@@ -140,8 +139,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="h-2/6 w-full flex justify-center items-end">
-                        <div class="flex flex-col pb-2">
+                    <div class="h-auto flex justify-center items-end pb-2">
+                        <div class="flex flex-col">
                             <p class="font-oswald text-white text-2xl">Découvrir le site</p>
                             <!-- TODO: animer le hover -->
                             <a href="#" class="flex justify-center">
