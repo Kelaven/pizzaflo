@@ -8,7 +8,9 @@
     max-height: 600px;
   }
 }
-
+#expertise__responsive-size {
+  max-height: 720px;
+}
 /* to the animation */
 #expertise__smooth-scroll .mt-1 {
   overflow: hidden;
