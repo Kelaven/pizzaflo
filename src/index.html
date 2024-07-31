@@ -46,7 +46,6 @@
 </head>
 
 <body>
-
     <!-- ! Navbar -->
     <header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-break-black text-sm py-4">
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
@@ -148,6 +147,25 @@
                                 <i class="fa-solid fa-chevron-down fa-xl py-6 cursor-pointer text-white"></i>
                             </a>
                         </div>
+                    </div>
+                </div>
+                <!-- ! Cookies consent -->
+                <div id="cookie-banner"
+                    class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 flex justify-between items-center xl:flex-col z-50">
+                    <div>
+                        <p class="text-sm xl:p-4">
+                            Ce site peut utiliser des cookies tiers, notamment à des fins statistiques. <br> En
+                            continuant à
+                            naviguer, vous acceptez notre <a href="./pages/privacyPolicy.html" target="_blank"
+                                class="underline">politique
+                                de
+                                confidentialité</a>.</p>
+                    </div>
+                    <div class="xl:flex">
+                        <button id="accept-cookies"
+                            class="bg-green-500 text-white px-4 py-2 my-1 rounded ml-4 xl:order-2">Accepter</button>
+                        <button id="refuse-cookies"
+                            class="border border-white hover:border-logo-red text-white px-5 py-2 my-1 rounded ml-4 xl:order-1">Refuser</button>
                     </div>
                 </div>
             </div>
