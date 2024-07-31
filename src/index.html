@@ -1,5 +1,6 @@
 <!-- TODO: optimiser robots.txt -->
-<!-- TODO: revoir nav-height car coupe les éléments en réduisant la fenetre + taille des images à passer fixe ou leur div parent à h-50 et gp à flex w-full items-center (voir projet apple) -->
+<!-- TODO: gestion des cookies -->
+<!-- TODO: copyright photos -->
 
 <!doctype html>
 <html lang="fr">
@@ -562,8 +563,12 @@
                         <!-- genral clauses -->
                         <div class="flex items-center py-1">
                             <input type="checkbox" id="terms" name="terms" class="mr-2" required>
-                            <label for="terms" class="text-white">J'accepte les <a href="#" class="underline">conditions
-                                    générales</a>*</label>
+                            <label for="terms" class="text-white text-sm italic">En soumettant ce formulaire, vous
+                                acceptez que
+                                vos
+                                données personnelles soient traitées conformément à notre <a
+                                    href="./pages/privacyPolicy.html" class="underline">politique de
+                                    confidentialité</a>*</label>
                         </div>
                         <small id="termsError" class="text-red-500 error-message"></small>
                         <!-- captcha -->
@@ -595,8 +600,9 @@
         <!-- TODO: créer les pages -->
         <div class="flex justify-center w-full xl:py-4 order-2">
             <div class="grid content-between">
-                <p class="text-white font-openSans text-xs xl:text-sm"><a href="#" class="underline">Mentions
-                        légales</a> • <a href="#" class="underline">Politique
+                <p class="text-white font-openSans text-xs xl:text-sm"><a href="./pages/legalNotice.html"
+                        target="_blank" class="underline">Mentions
+                        légales</a> • <a href="./pages/privacyPolicy.html" class="underline" target="_blank">Politique
                         de confidentialité</a></p>
                 <p class="text-white text-xxs italic font-openSans xl:text-xs text-center py-2 xl:py-0">Site créé par
                     Kévin
@@ -617,8 +623,9 @@
 
 
 
-    <!-- Mon script -->
+    <!-- Mes scripts -->
     <script type="module" src="./index.js"></script>
+    <script type="module" src="./app/style.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/dce61209e7.js" crossorigin="anonymous"></script>
     <!-- GSAP -->

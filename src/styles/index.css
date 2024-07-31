@@ -5,6 +5,7 @@
 @import "./pages/homepage/customers.css";
 @import "./pages/homepage/contact.css";
 @import "./pages/homepage/footer.css";
+@import "./pages/legalNoticePrivacyPolicy/legalNoticePrivacyPolicy.css";
 
 @tailwind base;
 @tailwind components;
