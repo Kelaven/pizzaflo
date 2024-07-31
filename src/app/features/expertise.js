@@ -9,15 +9,19 @@ export function smoothScale() {
 
   imgs.forEach(img => {
     gsap.to(img, {
-      scrollTrigger: {
-        trigger: trigger,
-        start: "top 70%",
-        // end: "bottom 20%",
-        // markers: true,
-        scrub: 5.5 // to reverse and animate during scrolling, not just at once
-      },
       scale: 1.1,
-      ease: 'power1',
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: img,
+        start: "top 80%", // Ajuster le déclenchement en fonction du point d'entrée de l'élément
+        end: "bottom 20%",
+        scrub: 5.5, // Ajuster pour un défilement plus fluide
+        // markers: true,
+        // onEnter: () => console.log('Entered'),
+        // onLeave: () => console.log('Left'),
+        // onEnterBack: () => console.log('Entered back'),
+        // onLeaveBack: () => console.log('Left back'),
+      }
     });
   });
 }
