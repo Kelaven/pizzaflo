@@ -22,3 +22,16 @@
 /* .min-nav-height {
   min-height: calc(100svh - 88px);
 } */
+#cookies-banner {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+.hide-fast {
+  display: none;
+  pointer-events: none;
+}
