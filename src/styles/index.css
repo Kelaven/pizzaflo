@@ -6,6 +6,7 @@
 @import "./pages/homepage/contact.css";
 @import "./pages/homepage/footer.css";
 @import "./pages/legalNoticePrivacyPolicy/legalNoticePrivacyPolicy.css";
+@import "./pages/privateEvents/privateEvents.css";
 
 @tailwind base;
 @tailwind components;
