@@ -21,6 +21,7 @@ export default defineConfig({
         main: resolve(__dirname, 'src/index.html'),
         legalNotice: resolve(__dirname, 'src/pages/legalNotice.html'),
         privacyPolicy: resolve(__dirname, 'src/pages/privacyPolicy.html'),
+        findMe: resolve(__dirname, 'src/pages/findMe.html'),
 
       },
     },
