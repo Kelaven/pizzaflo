@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-// import phpPlugin from 'vite-plugin-php';
-// import usePHP from 'vite-plugin-php';
+import { resolve } from 'path'; // pour le multipage
 
 export default defineConfig({
   root: "src",
@@ -14,16 +13,15 @@ export default defineConfig({
         },
       ]
     }),
-    // phpPlugin(),
-    // usePHP({
-    //   entry: ['src/**/*.php'],
-    // }),
   ],
   build: {
     outDir: "../dist", // Où Vite construira les fichiers de production
     rollupOptions: {
-      input: {
-        main: "src/index.html",
+      input: { // pour le multipage
+        main: resolve(__dirname, 'src/index.html'),
+        legalNotice: resolve(__dirname, 'src/pages/legalNotice.html'),
+        privacyPolicy: resolve(__dirname, 'src/pages/privacyPolicy.html'),
+
       },
     },
   },

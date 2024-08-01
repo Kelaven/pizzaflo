@@ -6,13 +6,19 @@ export const cookies = () => {
 
     // Vérifier les préférences stockées dans le localStorage à chaque chargement de la page (si l’utilisateur a déjà accepté ou refusé les cookies, la bannière est masquée et les préférences sont appliquées en conséquence) :
     const cookiesStorage = localStorage.getItem('cookiesAccepted');
-    if (cookiesStorage === 'true') {
-        cookiesBanner.classList.add("hide-fast");
-        loadGoogleAnalytics();
-    } else if (cookiesStorage === 'false') { // condition obligatoire car si l'utilisateur arrive pour la toute 1ere fois sur le site et ne clique pas encore sur accepter/refuser, alors cookiesStorage renvoie NULL
-        cookiesBanner.classList.add("hide-fast");
+
+    if (cookiesStorage !== null) {
+        if (cookiesStorage === 'true') {
+            cookiesBanner.classList.add("hide-fast");
+            loadGoogleAnalytics();
+        } else if (cookiesStorage === 'false') { // condition obligatoire car si l'utilisateur arrive pour la toute 1ere fois sur le site et ne clique pas encore sur accepter/refuser, alors cookiesStorage renvoie NULL
+            cookiesBanner.classList.add("hide-fast");
+            disableGoogleAnalytics();
+        }
+    } else {
         disableGoogleAnalytics();
     }
+
 
 
     // L'utilisateur click sur Accepter : 
@@ -30,7 +36,7 @@ export const cookies = () => {
 
 
 
-    // Fonction pour charger Google Analytics
+    // Fonction pour charger Google Analytics dynamiquement
     function loadGoogleAnalytics() {
         gtag('consent', 'update', {
             'ad_user_data': 'granted',
@@ -39,6 +45,7 @@ export const cookies = () => {
             'analytics_storage': 'granted'
         });
     }
+
     // Fonction pour désactiver Google Analytics
     function disableGoogleAnalytics() {
         gtag('consent', 'default', {
