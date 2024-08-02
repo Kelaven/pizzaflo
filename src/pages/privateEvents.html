@@ -100,16 +100,17 @@
     </header>
 
 
-    <main class="min-nav-footer-height bg-overlay-black xl:py-24">
-        <section class="xl:px-20"> <!-- title and text -->
-            <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:pe-14 xl:ps-6">
-                <div class="h-full px-6 xl:px-0 xl:py-6 text-container flex flex-col justify-between">
+    <main class="min-nav-footer-height bg-overlay-black xl:py-24 lg:flex">
+        <!-- Section titre et texte -->
+        <section class="xl:ps-16 lg:flex-1 bg-stone-400 lg:flex lg:items-center">
+            <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:ps-6">
+                <div class="h-full px-6 xl:px-0 text-container flex flex-col justify-between">
                     <div>
                         <h1
                             class="py-8 text-white text-center font-oswald uppercase text-2xl xl:text-4xl xl:text-start text-balance">
                             Organisez votre évènement
                         </h1>
-                        <p class="xl:px-0 text-justify text-white font-openSans xl:pt-6">
+                        <p class="text-justify text-white font-openSans xl:pt-6">
                             Phasellus ac nisi ut nunc scelerisque commodo. Nulla facilisi. Ut nec metus ac tortor auctor
                             convallis.
                             Integer ut urna in lorem interdum pharetra at ac magna. Vivamus vehicula maximus tellus a
@@ -120,7 +121,8 @@
                             Praesent
                             scelerisque, odio nec eleifend interdum, urna turpis cursus turpis, in consequat justo eros
                             a erat.
-                            <br><br>
+                        </p>
+                        <p class="text-justify text-white font-openSans pt-4">
                             Quisque at lorem eros. Curabitur eget erat ut lectus consectetur malesuada. Etiam malesuada
                             tristique
                             dui non scelerisque. Maecenas pharetra massa nec ultricies laoreet. Suspendisse potenti. Ut
@@ -137,16 +139,19 @@
                         </p>
                         <div class="text-center pt-6">
                             <a href="#"
-                                class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out mb-3 xl:mb-0 xl:me-10">J'accède
-                                au formulaire de contact</a>
+                                class="py-3 px-8 max-md-sm:px-6 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out mb-3 xl:mb-0 xl:me-10">
+                                J'accède au formulaire de contact
+                            </a>
                         </div>
-        </section>
-        <section>
-            <div class="flex-1 order-2 xl:order-1 flex justify-center xl:ps-14">
-                <!-- TODO: responsive design after (ipad air paysage min.) -->
-                <img class="privateEvents__img-resize py-6 w-full object-cover" src="/assets/img/toreplace/jc-truck.png"
-                    alt="Photo d'un vieux Food Truck typique" loading="lazy">
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- Section image -->
+        <section class="lg:flex-1 flex justify-center items-center bg-red-400">
+            <img class="privateEvents__img-resize py-6 object-cover w-full px-6"
+                src="/assets/img/toreplace/jc-truck.png" alt="Photo d'un vieux Food Truck typique" loading="lazy">
         </section>
 
         <!-- ! Cookies consent -->
