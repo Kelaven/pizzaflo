@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         "break-black": "#222",
+        "break-black-20": "rgba(34, 34, 34, 0.2)",
         "overlay-black": "#333",
         "logo-green": "#00925A",
         "logo-red": "#DF2416",

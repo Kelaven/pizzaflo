@@ -16,9 +16,13 @@ fetch("/assets/data/pizzas.json")
 
         // Itérer sur chaque pizza dans le tableau data
         data.forEach(pizza => {
-            // Crée un élément div pour la carte de la pizza
+            // Créé l'enveloppe de la card
+            const cardWrapper = document.createElement('div');
+            cardWrapper.classList.add('break-black-20', 'p-1', 'm-2', 'rounded-md', 'relative', 'z-0', 'overflow-hidden');
+
+            // Crée un élément div pour la card de la pizza
             const card = document.createElement('div');
-            card.classList.add('pizzasList__cards--resize', 'flex', 'flex-col', 'bg-break-black', 'shadow-sm', 'rounded-md', 'm-4');
+            card.classList.add('pizzasList__cards--resize', 'h-full', 'flex', 'flex-col', 'bg-break-black', 'shadow-sm', 'rounded-md');
 
 
             // Crée un élément img pour l'image de la pizza
@@ -52,32 +56,56 @@ fetch("/assets/data/pizzas.json")
                     </p>
             `;
 
+            // Crée un élément blob pour l'effet de glow
+            const blob = document.createElement('div');
+            blob.classList.add(
+                'blob',
+            );
+            // Seulement pour récupérer la position originelle du blob (on ne peut pas la stocker dans une variable car elle changerait selon le zoom du navigateur ou le scroll) :
+            const fakeBlob = document.createElement('div');
+            fakeBlob.classList.add(
+                'fake-blob',
+            );
+
             // Assemble la carte
             cardContent.appendChild(cardTitle);
             cardContent.appendChild(cardDescription);
             card.appendChild(cardContent);
+            cardWrapper.appendChild(card);
+            cardWrapper.appendChild(blob);
+            cardWrapper.appendChild(fakeBlob);
 
             // Ajoute la carte aux conteneurs de cartes
             switch (pizza.catégorie) {
                 case "Pizzas traditionnelles":
-                    tradContainer.appendChild(card);
+                    tradContainer.appendChild(cardWrapper);
                     break;
                 case "Pizzas aux fromages":
-                    cheeseContainer.appendChild(card);
+                    cheeseContainer.appendChild(cardWrapper);
                     break;
                 case "Pizzas base crème fraîche":
-                    creamContainer.appendChild(card);
+                    creamContainer.appendChild(cardWrapper);
                     break;
                 case "Pizzas aux poissons":
-                    fishContainer.appendChild(card);
+                    fishContainer.appendChild(cardWrapper);
                     break;
                 case "Pizzas originales":
-                    originalsContainer.appendChild(card);
+                    originalsContainer.appendChild(cardWrapper);
                     break;
                 default:
                     console.log("Data error");
                     break;
             }
+        });
+        // Anime le blob
+        const allCards = document.querySelectorAll(".break-black-20");
+        window.addEventListener("mousemove", () => {
+            allCards.forEach((e) => {
+                const blob = e.querySelector(".blob"); // Pour chaque carte, on récupère son élément enfant avec la classe .blob afin d'intéragir avec lui. On le sélectionne uniquement avec querySelector et non pas querySelectorAll car on ne cible qu'un seul élément par carte. Cela évite de manipuler par erreur plusieurs éléments et engendrer des bugs. 
+                console.log(blob);
+                const fblob = e.querySelector(".fake-blob");
+                console.log(fblob);
+            });
         });
     })
     .catch(error => {
