@@ -1,3 +1,4 @@
 .pizzasList__cards--resize {
   width: 300px;
+  /* max-height: 100px; */
 }
