@@ -22,6 +22,8 @@ export default defineConfig({
         legalNotice: resolve(__dirname, 'src/pages/legalNotice.html'),
         privacyPolicy: resolve(__dirname, 'src/pages/privacyPolicy.html'),
         findMe: resolve(__dirname, 'src/pages/findMe.html'),
+        privateEvents: resolve(__dirname, 'src/pages/privateEvents.html'),
+        pizzasList: resolve(__dirname, 'src/pages/pizzasList.html'),
 
       },
     },
