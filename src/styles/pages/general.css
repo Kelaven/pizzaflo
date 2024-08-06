@@ -1,5 +1,4 @@
 /* ! General */
-/* ? Scroll behavior */
 html {
   scroll-behavior: smooth;
 }
@@ -20,3 +19,5 @@ body::-webkit-scrollbar-thumb {
 /* img {
   filter: sepia(10%);
 } */
+
+/* ! btns */

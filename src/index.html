@@ -1,5 +1,4 @@
 <!-- TODO: optimiser robots.txt -->
-<!-- TODO: gestion des cookies -->
 <!-- TODO: copyright photos -->
 
 <!doctype html>
@@ -58,11 +57,15 @@
     <!-- ! Navbar -->
     <header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-break-black text-sm py-4">
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
-            <div class="flex items-center justify-between">
-                <!-- TODO: police Anton si nom, Oswald si texte -->
-                <a class="inline-flex items-center gap-x-2 text-xl font-semibold text-white" href="#">
+            <div class="flex items-center justify-between w-full">
+                <!-- Logo et nom -->
+                <a class="inline-flex items-center gap-x-3 text-xl font-semibold text-white" href="./index.html">
                     <img src="/assets/img/logo-pizzaflo-black.png" class="h-14" alt="Pizza Flo Logo">
-                    Texte/Nom
+                    <div class="flex flex-col">
+                        <span class="font-oswald text-lg sm:text-xl leading-none">Pizza Flo</span>
+                        <span class="font-oswald text-sm sm:text-base text-gray-300 leading-none">Artisan
+                            Pizzaiolo</span>
+                    </div>
                 </a>
                 <div class="sm:hidden">
                     <button type="button"
@@ -89,15 +92,14 @@
                 class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                 <div
                     class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 md:py-4">
-                    <!-- TODO: remplir les href -->
                     <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-green relative"
-                        href="./pages/findMe.html" aria-current="page">Où me
-                        trouver</a>
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-white relative"
-                        href="./pages/pizzasList.html">Les pizzas</a>
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-red relative"
                         href="./pages/privateEvents.html">Évènements
                         privés</a>
+                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-white relative"
+                        href="./pages/findMe.html" aria-current="page">Où me
+                        trouver</a>
+                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-red relative"
+                        href="./pages/pizzasList.html">Les pizzas</a>
                 </div>
             </div>
         </nav>
@@ -128,7 +130,7 @@
                         <div class="w-10.5/12 flex flex-col items-center">
                             <h1
                                 class="text-center text-white font-anton max-md-sm:text-2xl text-2.5xl sm:text-4xl tracking-normal sm:tracking-wide max-sm:pt-2">
-                                Artisan pizzaïolo depuis 1993 <br> <span
+                                Artisan pizzaiolo depuis 1993 <br> <span
                                     class="max-md-sm:text-7xl text-7.5xl sm:text-9xl tracking-wide-md sm:tracking-normal">PIZZA
                                     FLO</span></h1>
                             <hr class="border-t-4 border-white rounded-sm my-3 w-1/3 sm:w-1/4 lg:w-1/5 2xl:w-1/6">
@@ -139,10 +141,11 @@
                                         class="tracking-normal sm:tracking-wide-md">
                                         Hauts-de-France ・Île-de-France・Champagne-Ardennes</span></p>
                                 <div class="flex justify-between pt-4">
-                                    <a href="#"
-                                        class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Contactez-moi</a>
-                                    <a href="#"
-                                        class="py-3 max-md-sm:px-4 px-6 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-red hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Clients
+                                    <a href="#contact__section"
+                                        class="flex-1 py-3 max-md-sm:px-6 inline-flex items-center justify-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Contactez-moi</a>
+                                    <div class="px-4"></div>
+                                    <a href="#customers__section"
+                                        class="flex-1 py-3 max-md-sm:px-4 inline-flex items-center justify-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Clients
                                         satisfaits</a>
                                 </div>
                             </div>
@@ -151,8 +154,7 @@
                     <div class="h-auto flex justify-center items-end pb-2">
                         <div class="flex flex-col">
                             <p class="font-oswald text-white text-2xl">Découvrir le site</p>
-                            <!-- TODO: animer le hover -->
-                            <a href="#" class="flex justify-center">
+                            <a href="#storyTelling__section" class="flex justify-center">
                                 <i class="fa-solid fa-chevron-down fa-xl py-6 cursor-pointer text-white"></i>
                             </a>
                         </div>
@@ -182,7 +184,8 @@
 
         <!-- ! Story telling -->
         <!-- TODO: mettre vraie photo, filtre lightroom et optimiser -->
-        <section class="xl:min-nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center vintage-effect">
+        <section id="storyTelling__section"
+            class="xl:min-nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center vintage-effect">
             <div class="xl:flex">
                 <div id="storyTelling__container-responsive-size"
                     class="flex-1 order-2 xl:order-1 xl:flex xl:items-center xl:ps-14">
@@ -193,68 +196,57 @@
                 <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:pe-14 xl:ps-6">
                     <div class="h-full px-6 xl:px-0 xl:py-6 text-container flex flex-col justify-between">
                         <div class="py-8 xl:py-0">
-                            <h2 class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start">
-                                30
-                                ans
-                                de
-                                passion et
-                                d’artisanat
+                            <h2
+                                class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start text-pretty">
+                                Trois Décennies de Passion et de Maîtrise
                             </h2>
                         </div>
-                        <div class="">
-                            <p class="text-justify text-white font-openSans xl:pt-6">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing
-                                elit.
-                                Vivamus lacinia
-                                odio vitae
-                                vestibulum vestibulum.
-                                Cras venenatis euismod malesuada. Nam cursus, nisi ut aliquam placerat, nisi felis
-                                dictum
-                                justo, non
-                                ultrices
-                                justo ante non est. Duis faucibus feugiat nulla, sit amet maximus ex laoreet et. Nullam
-                                euismod, augue a
-                                ultricies faucibus, massa lacus placerat dui, eget consectetur enim diam at justo.
-                                Aliquam
-                                erat volutpat.
-                                Proin ac imperdiet nunc, a placerat libero. Pellentesque habitant morbi tristique
-                                senectus
-                                et netus et
-                                malesuada fames ac turpis egestas.
-                                <br> <br>
-                                Phasellus ac nisi ut nunc scelerisque commodo. Nulla facilisi. Ut nec metus ac tortor
-                                auctor
-                                convallis.
-                                Integer ut urna in lorem interdum pharetra at ac magna. Vivamus vehicula maximus tellus
-                                a
-                                luctus. Nam
-                                finibus
-                                metus a felis bibendum, sit amet vulputate odio pulvinar. Etiam convallis ligula nec
-                                auctor
-                                elementum.
-                                Vivamus
-                                tempor mollis ligula, at fermentum ex auctor non. Nulla facilisi. Praesent scelerisque,
-                                odio
-                                nec eleifend
-                                interdum, urna turpis cursus turpis, in consequat justo eros a erat.
-                                <br> <br>
-                                Quisque at lorem eros. Curabitur eget erat ut lectus consectetur malesuada. Etiam
-                                malesuada
-                                tristique dui
-                                non
-                                scelerisque.
+                        <div>
+                            <p class="text-justify text-white font-openSans py-4">
+                                Notre chef pizzaïolo, créateur du <strong>Food Truck PIZZA FLO</strong>, cumule fèrement
+                                plus de
+                                <strong>30 ans de passion pour la cuisine de pizzas artisanales</strong>. Découvrez son
+                                parcours
+                                riche en
+                                apprentissages et succès :
                             </p>
+                            <blockquote>
+                                <p class="text-justify text-white font-openSans py-4">
+                                    « Mon aventure a commencé le <time datetime="1993-11-03">3 novembre 1993</time>,
+                                    dans le Val d’Oise, avec l’achat de mon premier camion à un maître artisan surnommé
+                                    <span class="italic">Lolo</span>. C'était un Peugeot J9, déjà âgé de 9 ans ! C'est
+                                    ainsi que j'ai commencé mes tournées et mes premières saisons d'été dans les
+                                    campings de Vendée.<br><br>
+
+                                    En 1997, j'ai acquis un Citroën Jumper flambant neuf, que j'ai transformé en un
+                                    véritable
+                                    restaurant mobile avec l'aide de professionnels locaux. En 2007, j'ai déménagé à
+                                    Anizy-le-Château pour développer
+                                    mon activité et aménager un troisième camion.<br><br>
+
+                                    En 2011, j'ai lancé le service <span class="italic">Pizza Party</span>, offrant la
+                                    <strong>privatisation du camion pour des événements privés et
+                                        professionnels</strong>. La même année, nous avons créé notre site internet,
+                                    ouvrant un nouveau chapitre pour <strong>PIZZA FLO</strong>. <br> Chaque moment avec
+                                    mes
+                                    clients est un souvenir précieux et je suis heureux de continuer cette belle
+                                    aventure à vos côtés !
+                                    »
+                                </p>
+                            </blockquote>
                         </div>
                         <div class="py-4 flex flex-col xl:flex-row items-center xl:items-end xl:py-0">
-                            <div>
-                                <a href="#"
-                                    class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out mb-3 xl:mb-0 xl:me-10">Les
-                                    emplacements du soir</a>
+                            <div class="flex-1 w-full">
+                                <a href="./pages/privateEvents.html"
+                                    class="w-full py-3 px-6 inline-flex items-center justify-center max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out mb-3 xl:mb-0">
+                                    Privatiser le camion
+                                </a>
                             </div>
-                            <div>
-                                <a href="#"
-                                    class="py-3 max-md-sm:px-4 px-6 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-red hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">Privatiser
-                                    le camion
+                            <div class="px-4"></div>
+                            <div class="flex-1 w-full">
+                                <a href="./pages/findMe.html"
+                                    class="w-full py-3 px-6 inline-flex items-center justify-center max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">
+                                    Les emplacements du soir
                                 </a>
                             </div>
                         </div>
@@ -293,62 +285,40 @@
                 </div>
                 <div class="flex-1 order-1 xl:flex xl:items-center xl:ps-14">
                     <div class="h-full px-6 xl:py-6">
-                        <div class="xl:h-[10%] py-8 xl:pt-0">
-                            <h2 class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start">
-                                Une
-                                cuisine aux
-                                petits oignons
+                        <div class="xl:h-[10%] py-8 xl:py-0">
+                            <h2
+                                class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start text-pretty">
+                                Une Cuisine Soignée et Authentique
                             </h2>
                         </div>
-                        <div class="xl:h-[80%]">
-                            <p class="text-justify text-white font-openSans xl:pt-6">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing
-                                elit.
-                                Vivamus lacinia
-                                odio vitae
-                                vestibulum vestibulum.
-                                Cras venenatis euismod malesuada. Nam cursus, nisi ut aliquam placerat, nisi felis
-                                dictum
-                                justo, non
-                                ultrices
-                                justo ante non est. Duis faucibus feugiat nulla, sit amet maximus ex laoreet et. Nullam
-                                euismod, augue a
-                                ultricies faucibus, massa lacus placerat dui, eget consectetur enim diam at justo.
-                                Aliquam
-                                erat volutpat.
-                                Proin ac imperdiet nunc, a placerat libero. Pellentesque habitant morbi tristique
-                                senectus
-                                et netus et
-                                malesuada fames ac turpis egestas.
-                                <br> <br>
-                                Phasellus ac nisi ut nunc scelerisque commodo. Nulla facilisi. Ut nec metus ac tortor
-                                auctor
-                                convallis.
-                                Integer ut urna in lorem interdum pharetra at ac magna. Vivamus vehicula maximus tellus
-                                a
-                                luctus. Nam
-                                finibus
-                                metus a felis bibendum, sit amet vulputate odio pulvinar. Etiam convallis ligula nec
-                                auctor
-                                elementum.
-                                Vivamus
-                                tempor mollis ligula, at fermentum ex auctor non. Nulla facilisi. Praesent scelerisque,
-                                odio
-                                nec eleifend
-                                interdum, urna turpis cursus turpis, in consequat justo eros a erat.
-                                <br> <br>
-                                Quisque at lorem eros. Curabitur eget erat ut lectus consectetur malesuada. Etiam
-                                malesuada
-                                tristique dui
-                                non
-                                scelerisque.
+                        <div class="xl:h-[80%] flex items-center">
+                            <p class="text-justify text-white font-openSans py-4 xl:pb-10">
+                                Vous avez envie d'une pizza savoureuse qui vous fait voyager ? <br> Chez
+                                <strong>PIZZA FLO</strong>, c'est ce que nous proposons chaque jour. La cuisine
+                                est faite avec amour et passion : nos pizzas, c'est du sérieux. <br> <br>Cuites au feu
+                                de
+                                bois, elles ont ce goût <strong>authentique et croustillant</strong> qu'on aime tous. La
+                                pâte est pétrie
+                                tous les matins et les ingrédients rigoureusement sélectionnés. Vous allez adorer chaque
+                                part de mozzarella fondante, de champignons frais et de charcuterie délicate.<br><br>
+
+
+                                Nous proposons aussi la <strong>privatisation de notre food truck</strong> pour
+                                votre mariage, anniversaire, baptême ou évènement professionnel. Nous nous
+                                occuperons de tout pour que vos invités repartent avec le sourire.
+                                <br><br>
+
+                                Plus de trente ans à cuisiner des pizzas, ça en fait des souvenirs et des clients
+                                satisfaits. Alors venez vite découvrir notre savoir-faire, chez
+                                <strong>PIZZA FLO</strong> vous trouverez forcément la pizza qu'il vous faut !
                             </p>
                         </div>
                         <div class="py-4 xl:h-[10%] flex flex-col xl:flex-row items-center xl:items-end xl:py-0">
-                            <div>
-                                <a href="#"
-                                    class="py-3 max-md-sm:px-6 px-8 inline-flex items-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out mb-3 xl:mb-0 xl:me-10">J'accède
-                                    au menu</a>
+                            <div class="w-full">
+                                <a href="./pages/pizzasList.html"
+                                    class="w-full py-3 px-8 inline-flex items-center justify-center gap-x-2 max-md-sm:text-sm sm:text-lg font-semibold rounded-lg border-2 border-white text-white font-oswald hover:border-logo-green hover:text-logoborder-logo-green disabled:opacity-50 hover:text-opacity-80 disabled:pointer-events-none transition duration-300 ease-in-out">
+                                    J'accède au menu
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -357,7 +327,7 @@
         </section>
 
         <!-- ! Customers -->
-        <section
+        <section id="customers__section"
             class="xl:min-nav-height bg-overlay-black flex flex-col xl:px-14 xl:flex-row xl:items-center vintage-effect">
             <div class="customers__container--card-resize w-full p-6 xl:h-4/5 xl:flex xl:flex-col">
                 <div class="py-8 xl:pt-0">
@@ -509,7 +479,8 @@
         </section>
 
         <!-- ! Contact -->
-        <section class="xl:min-nav-height bg-overlay-black flex flex-col xl:px-14 xl:flex-row xl:items-center">
+        <section id="contact__section"
+            class="xl:min-nav-height bg-overlay-black flex flex-col xl:px-14 xl:flex-row xl:items-center">
             <div class="px-6 xl:py-24">
                 <div class="py-8">
                     <h2 class="text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start">
