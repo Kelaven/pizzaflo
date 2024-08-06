@@ -18,11 +18,11 @@ fetch("/assets/data/pizzas.json")
         data.forEach(pizza => {
             // Créé l'enveloppe de la card
             const cardWrapper = document.createElement('div');
-            cardWrapper.classList.add('break-black-20', 'p-1', 'm-2', 'rounded-md', 'relative', 'z-0', 'overflow-hidden');
+            cardWrapper.classList.add('pizzasList__cardWrapper', 'break-black-20', 'p-1', 'm-2', 'rounded-md', 'relative', 'z-0', 'overflow-hidden');
 
             // Crée un élément div pour la card de la pizza
             const card = document.createElement('div');
-            card.classList.add('pizzasList__cards--resize', 'h-full', 'flex', 'flex-col', 'bg-break-black', 'shadow-sm', 'rounded-md');
+            card.classList.add('pizzasList__card', 'pizzasList__cards--resize', 'h-full', 'flex', 'flex-col', 'bg-break-black', 'shadow-sm', 'rounded-md');
 
 
             // Crée un élément img pour l'image de la pizza

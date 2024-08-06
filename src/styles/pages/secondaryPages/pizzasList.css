@@ -26,11 +26,11 @@
 }
 
 /* Pour avoir l'effet de lumière dans les cards : */
-.bg-break-black {
+.pizzasList__card {
   /* => card dans JS */
   transition: background 1000ms ease-in-out;
 }
-.break-black-20:hover > .bg-break-black {
+.pizzasList__cardWrapper:hover > .pizzasList__card {
   /* => cardWrapper dans JS */
   background: rgb(26, 26, 26, 0.6);
   backdrop-filter: blur(80px);
