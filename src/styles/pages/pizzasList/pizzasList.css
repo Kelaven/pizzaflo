@@ -1,14 +1,14 @@
 .pizzasList__cards--resize {
   width: 300px;
-  /* max-height: 100px; */
 }
 
+/* Pour styliser le blob : */
 .blob {
-  filter: blur(40px);
+  filter: blur(60px);
   position: absolute;
   z-index: -1; /* to keep it at below everything else */
-  top: 0; /* to align it at top */
-  left: 0; /* to align it at left */
+  top: 60%; /* to align it at top */
+  left: 10%; /* to align it at left */
   width: 250px;
   height: 250px;
   border-radius: 50%; /* to make it circular */
@@ -18,9 +18,20 @@
   display: hidden;
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
+  top: 60%;
+  left: 10%;
   width: 250px;
   height: 250px;
   border-radius: 50%;
+}
+
+/* Pour avoir l'effet de lumière dans les cards : */
+.bg-break-black {
+  /* => card dans JS */
+  transition: background 1000ms ease-in-out;
+}
+.break-black-20:hover > .bg-break-black {
+  /* => cardWrapper dans JS */
+  background: rgb(26, 26, 26, 0.6);
+  backdrop-filter: blur(80px);
 }
