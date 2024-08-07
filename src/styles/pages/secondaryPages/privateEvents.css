@@ -1,3 +1,6 @@
-.privateEvents__img-resize {
-  max-width: 650px;
+@media (min-width: 1536px) {
+  .privateEvents__img-resize {
+    max-height: 560px;
+    max-width: 85%;
+  }
 }
