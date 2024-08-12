@@ -1,0 +1,25 @@
+# Activation du module de réécriture d'URL:
+
+Options +FollowSymlinks
+RewriteEngine on
+
+
+# Règles de réécriture d'URL:
+
+RewriteRule ^$ /index.html
+
+RewriteRule ^accueil$ /index.html
+RewriteRule ^nos-emplacements$ /pages/findMe.html
+RewriteRule ^mentions-legales$ /pages/legalNotice.html
+RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html
+RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html
+RewriteRule ^reservations-privees$ /pages/privateEvents.html
+
+
+# Redirections 301 pour les anciennes pages:
+# TODO: revoir les redirections
+
+# Redirect 301 / /accueil
+# Redirect 301 /vente-direct/ /carte-des-pizzas
+# Redirect 301 /mentions-legales-politique-de-confidentialite/ /mentions-legales
+# Redirect 301 /privatisation-food-truck/ /reservations-privees

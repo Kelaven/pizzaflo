@@ -1,5 +1,3 @@
-<!-- TODO: optimiser robots.txt -->
-
 <!doctype html>
 <html lang="fr">
 
@@ -24,11 +22,10 @@
     <meta property="og:title" content="Pizza Flo - Artisan Pizzaiolo en Food Truck">
     <meta property="og:description"
         content="Pizza Flo, artisan pizzaiolo depuis 1993, cuisine des pizzas au feu de bois en food truck. Vente directe & privatisation du camion pour événements: Picardie, Hauts-de-France, Paris, Champagne-Ardennes">
-    <!-- TODO: à modifier -->
-    <meta property="og:image" content="URL_de_l_image_de_votre_site.jpg">
-    <meta property="og:url" content="URL_de_votre_site">
-    <!-- TODO: à modifier -->
+    <meta property="og:image" content="https://www.pizza-flo.fr/assets/img/cn18/hero-desktop-80.jpg">
+    <meta property="og:url" content="https://www.pizza-flo.fr/">
     <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.pizza-flo.fr/">
     <!-- favicon, title, css, fonts et CDN -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>Pizza Flo - Artisan Pizzaiolo en Food Truck - HDF, IDF, CA</title>
@@ -179,15 +176,17 @@
         </section>
 
         <!-- ! Story telling -->
-        <!-- TODO: mettre vraie photo, filtre lightroom et optimiser -->
         <section id="storyTelling__section"
             class="xl:min-nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center vintage-effect">
             <div class="xl:flex">
                 <div id="storyTelling__container-responsive-size"
                     class="flex-1 order-2 xl:order-1 xl:flex xl:items-center xl:ps-14">
-                    <img id="storyTelling__responsive-size" class="p-6 w-full object-cover"
-                        src="/assets/img/toreplace/old-truck.png" alt="Photo d'un vieux Food Truck typique"
-                        loading="lazy">
+                    <picture class="p-6 w-full">
+                        <source srcset="/assets/img/cn18/old-truck-75.webp" type="image/webp">
+                        <img id="storyTelling__responsive-size" class="object-cover h-full w-full"
+                            src="/assets/img/cn18/old-truck-60.jpg" alt="Photo d'un vieux Food Truck typique"
+                            loading="lazy">
+                    </picture>
                 </div>
                 <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:pe-14 xl:ps-6">
                     <div class="h-full px-6 xl:px-0 xl:py-6 text-container flex flex-col justify-between">
@@ -257,9 +256,12 @@
             <div class="xl:flex">
                 <div id="expertise__responsive-size" class="p-6 mx-auto flex-1 order-2 xl:flex xl:flex-col xl:pe-14">
                     <div class="h-1/2">
-                        <!-- TODO: mettre vraie vidéo, filtre lightroom et optimiser -->
-                        <img class="object-cover h-full w-full" src="/assets/img/toreplace/wood-fire.png"
-                            alt="Vidéo de cuisson au feu de bois dans le four d'un Food Truck" loading="lazy">
+                        <picture class="object-cover h-full w-full">
+                            <source srcset="/assets/img/cn18/wood-fire-75.webp" type="image/webp">
+                            <img class="object-cover h-full w-full" src="assets/img/cn18/wood-fire-60.jpg"
+                                alt="Cuisson au feu de bois dans le four d'un Food Truck" loading="lazy">
+                        </picture>
+
                     </div>
                     <div id="expertise__smooth-scroll" class="h-1/2 flex gap-1">
                         <div class="mt-1 flex-1">
@@ -434,6 +436,7 @@
                                     Asterix • Machin Truc • Bidule Chouette</span></span>
                         </div>
                         <div class="oh"><span class="flex oh__inner">
+                                <!-- TODO: faire les ALT -->
                                 <img class="previews__imgs" src="assets/img/toreplace/obelix.png" alt="" loading="lazy">
                                 <img class="previews__imgs" src="assets/img/toreplace/old-truck.png" alt=""
                                     loading="lazy">
