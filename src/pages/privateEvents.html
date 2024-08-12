@@ -42,7 +42,7 @@
             type="text/css" /> -->
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap"
             rel="stylesheet" type="text/css" />
-        <link
+        <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap"
             type="text/css" />
     </noscript>
@@ -150,8 +150,13 @@
             </div>
         </section>
         <section class="xl:flex-1 flex justify-center items-center xl:py-16">
-            <img class="privateEvents__img-resize w-full object-contain pb-14 xl:pb-0 xl:ps-10"
-                src="/assets/img/toreplace/jc-truck.png" alt="Photo d'un vieux Food Truck typique" loading="lazy">
+            <!-- Ajout d'un titre pour identifier la section -->
+            <h2 class="sr-only">Image du Food Truck</h2>
+            <picture class="privateEvents__img-resize w-full object-cover pb-14 xl:pb-0 xl:ps-20 flex justify-center">
+                <source srcset="/assets/img/cn18/jc-truck-75.webp" type="image/webp">
+                <img src="/assets/img/cn18/jc-truck-80.jpg" class="w-full" alt="Photo d'un vieux Food Truck typique"
+                    loading="lazy">
+            </picture>
         </section>
     </main>
 
