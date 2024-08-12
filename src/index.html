@@ -111,7 +111,8 @@
                         type="image/webp">
                     <!-- pour couvrir jusqu'au breakpoint tailwind : -->
                     <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-50.webp" type="image/webp">
-                    <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-80.jpg" type="image/jpeg">
+                    <!-- <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-80.jpg" type="image/jpeg"> -->
+                    <source media="(max-width: 640px)" srcset="/assets/img/cn18/hero-mobile-60.jpg" type="image/jpeg">
                     <!-- * for desktop : -->
                     <source srcset="/assets/img/cn18/hero-desktop-50.webp" type="image/webp">
                     <img class="object-cover h-full w-full" src="/assets/img/cn18/hero-desktop-80.jpg"
@@ -167,7 +168,7 @@
                     </div>
                     <div class="md:flex xl:py-3">
                         <button
-                            class="accept-cookies bg-green-500 text-white px-4 py-2 my-1 rounded ml-4 md:order-2">Accepter</button>
+                            class="accept-cookies bg-green-700 hover:bg-green-500 text-white px-4 py-2 my-1 rounded ml-4 md:order-2">Accepter</button>
                         <button
                             class="refuse-cookies border border-white hover:border-logo-red text-white px-5 py-2 my-1 rounded ml-4 md:order-1">Refuser</button>
                     </div>
@@ -178,17 +179,17 @@
         <!-- ! Story telling -->
         <section id="storyTelling__section"
             class="xl:min-nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center vintage-effect">
-            <div class="xl:flex">
+            <div class="flex flex-col xl:flex-row">
                 <div id="storyTelling__container-responsive-size"
-                    class="flex-1 order-2 xl:order-1 xl:flex xl:items-center xl:ps-14">
-                    <picture class="p-6 w-full">
+                    class="flex-1 order-2 xl:order-1 xl:flex xl:items-center max-md-sm:px-6 xl:ps-14">
+                    <picture class="py-6 xl:px-6 w-full flex justify-center">
                         <source srcset="/assets/img/cn18/old-truck-75.webp" type="image/webp">
                         <img id="storyTelling__responsive-size" class="object-cover h-full w-full"
                             src="/assets/img/cn18/old-truck-60.jpg" alt="Photo d'un vieux Food Truck typique"
                             loading="lazy">
                     </picture>
                 </div>
-                <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:pe-14 xl:ps-6">
+                <div class="flex-1 order-1 xl:order-2 xl:flex xl:items-center xl:pe-20 xl:ps-6">
                     <div class="h-full px-6 xl:px-0 xl:py-6 text-container flex flex-col justify-between">
                         <div class="py-8 xl:py-0">
                             <h2
@@ -253,8 +254,8 @@
         <!-- ! Expertise -->
         <section id="expertise__container-responsive-size"
             class="xl:min-nav-height bg-overlay-black flex flex-col xl:flex-row xl:items-center">
-            <div class="xl:flex">
-                <div id="expertise__responsive-size" class="p-6 mx-auto flex-1 order-2 xl:flex xl:flex-col xl:pe-14">
+            <div class="flex flex-col xl:flex-row">
+                <div id="expertise__responsive-size" class="p-6 mx-auto flex-1 order-2 xl:flex xl:flex-col xl:pe-20">
                     <div class="h-1/2">
                         <picture class="object-cover h-full w-full">
                             <source srcset="/assets/img/cn18/wood-fire-75.webp" type="image/webp">
@@ -327,7 +328,7 @@
         <!-- ! Customers -->
         <section id="customers__section"
             class="xl:min-nav-height bg-overlay-black flex flex-col xl:px-14 xl:flex-row xl:items-center vintage-effect">
-            <div class="customers__container--card-resize w-full p-6 xl:h-4/5 xl:flex xl:flex-col">
+            <div class="customers__container--card-resize w-full px-6 xl:h-4/5 xl:flex xl:flex-col">
                 <div class="py-8 xl:pt-0">
                     <h2
                         class="customers__text-container text-white font-oswald uppercase text-2xl xl:text-4xl text-center xl:text-start text-pretty">
@@ -336,7 +337,7 @@
                 </div>
 
                 <div
-                    class="customers__card-resize grid rounded-md max-lg:p-6 pt-4 shadow-sm divide-y overflow-hidden lg:flex lg:divide-y-0 lg:divide-x">
+                    class="customers__card-resize grid rounded-md max-lg:py-6 pt-4 shadow-sm divide-y overflow-hidden lg:flex lg:divide-y-0 lg:divide-x">
                     <!-- * Card 1 -->
                     <div class="flex flex-col flex-[1_0_0%] bg-break-black max-lg:rounded-t-md">
                         <picture>
