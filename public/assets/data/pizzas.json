@@ -239,6 +239,7 @@
     "catégorie": "Pizzas originales"
   },
   {
+    "photo": "/assets/img/cn18/pizzasList/pizza-briedemeaux-60-300px.jpg",
     "nom": "Brie de Meaux",
     "prix": {
       "29cm": "10€",
@@ -388,6 +389,7 @@
     "catégorie": "Pizzas aux poissons"
   },
   {
+    "photo": "/assets/img/cn18/pizzasList/pizza-reblochon-60-300px.jpg",
     "nom": "Reblochon",
     "prix": {
       "29cm": "10€",
