@@ -169,11 +169,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mailer->setLanguage('fr');
             $mailer->isSMTP();
             $mailer->SMTPAuth   = true;
-            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mailer->Port       = 587;
-            $mailer->Host       = 'smtp.gmail.com';
-            // * $mailer->Username   = 'jclavenant@pizza-flo.com';
-            $mailer->Username   = 'kevin.lavenant.photographies@gmail.com';
+            $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mailer->Port       = 465;
+            $mailer->Host       = 'smtp.ionos.fr';
+            $mailer->Username   = 'jclavenant@pizza-flo.com';
             $mailer->Password   = 'SECRET';
 
             // Configuration du mode debug
@@ -181,9 +180,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // $mailer->Debugoutput = 'html'; // Affiche les informations de debug sous forme de HTML
 
             // Expéditeur et Destinataire
-            $mailer->setFrom($data['email'], $data['name']);
-            // * $mailer->addAddress('jclavenant@pizza-flo.com', 'Pizza Flo');
-            $mailer->addAddress('kevin.lavenant.photographies@gmail.com');
+            $mailer->setFrom('jclavenant@pizza-flo.com', 'Pizza Flo'); // Adresse From
+            $mailer->addReplyTo($data['email'], $data['name']);
+            $mailer->addAddress('jclavenant@pizza-flo.com', 'Pizza Flo');
 
             // Contenu
             $mailer->isHTML(true); // Activer le format HTML pour le corps de l'email
@@ -196,10 +195,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <body>
                 <p><strong>Nom:</strong> {$data['name']}</p>
                 <p><strong>Email:</strong> {$data['email']}</p>
-                <p><strong>Téléphone:</strong> {$data['phone']}</p>
+                <p><strong>Telephone:</strong> {$data['phone']}</p>
                 <p><strong>Localisation:</strong> {$data['location']}</p>
                 <p><strong>Date:</strong> {$data['date']}</p>
-                <p><strong>Nombre d'invités:</strong> {$data['guests']}</p>
+                <p><strong>Nombre d'invites:</strong> {$data['guests']}</p>
                 <p><strong>Message:</strong> {$data['message']}</p>
             </body>
             </html>";
