@@ -22,9 +22,12 @@
 /* ! cards opening */
 /* **** taille des imgs dans les previews **** */
 .previews__imgs {
-  width: 150px;
-  height: 150px;
-  height: auto;
+  /* max-width: 300px; */
+  /* height: 150px; */
+  max-height: 300px;
+  max-width: 400px;
+  /* height: auto; */
+  object-fit: cover;
 }
 /* **** overlay's superposition **** */
 .overlay {
