@@ -5,7 +5,7 @@ export function animateCardsModal() {
     const links = document.querySelectorAll('.item__link');
     const backButtons = document.querySelectorAll('.preview__back');
     const overlays = document.querySelector('.overlay');
-    let slideIntervals = []; // Tableau pour stocker les IDs d'intervalle pour le slide
+    let slideIntervals = []; // Tableau qui va stocker les identifiants des animations en cours (les intervalles)
 
     // Fonction pour ouvrir l'élément
     const openItem = (index) => {
@@ -30,7 +30,7 @@ export function animateCardsModal() {
             .to(previews[index].querySelectorAll('.oh__inner'), { y: 0, stagger: 0.05 }, '-=0.5'); // stagger produit l'effet de cascade. y: 0 permet de replacer l'élément à sa position d'origine.
 
 
-        // Animer les slides à l'intérieur
+        // ! Animer les slides à l'intérieur
         function animateSlides() {
             const slideshows = document.querySelectorAll('.slideshow');
             slideshows.forEach(slideshow => {
@@ -43,7 +43,7 @@ export function animateCardsModal() {
                     slides[currentSlide].style.opacity = '1'; // Fait apparaître le suivant
                 }
 
-                // Initialiser le premier slide
+                // Initialiser le premier slide (Pour le premier élément de slides (c’est-à-dire celui avec index === 0), l’opacité est définie à 1, donc il sera visible. Pour tous les autres éléments de slides (ceux avec index > 0), l’opacité est définie à 0, donc ils seront invisibles)
                 slides.forEach((slide, index) => {
                     slide.style.opacity = index === 0 ? '1' : '0';
                 });
@@ -69,8 +69,8 @@ export function animateCardsModal() {
             .add(() => {
                 previews[index].classList.remove('active'); // Retire la classe active de la prévisualisation
 
-                // Arrêter tous les intervals pour réinitialiser les slides
-                slideIntervals.forEach(intervalID => clearInterval(intervalID));
+                // ! Arrêter tous les intervals pour réinitialiser les slides (et éviter les bugs)
+                slideIntervals.forEach(intervalID => clearInterval(intervalID)); //  Chaque fois que que l'on ferme une carte, les animations sont arrêtées (avec clearInterval)
                 slideIntervals = []; // Réinitialiser le tableau des intervals
             });
     };
@@ -112,3 +112,5 @@ export function animateCardsModal() {
 // Correspondance entre les cartes et les prévisualisations
     // Dans le code HTML et JavaScript, il y a un mécanisme implicite pour faire correspondre les cards et les previews. La correspondance repose sur l’index des éléments dans les collections previews et links (l'ordre des éléments dans le DOM est donc primordial). La correspondance entre les cards et les previews est donc automatique car les deux collections links et previews sont itérées avec le même index index.
     // Les fonctions récupèrent l'index grâce aux closures (capture des variables de leur environnement lexical).
+
+// L’API setInterval est une fonction en JavaScript qui permet d’exécuter une fonction ou un bloc de code de manière répétée, avec un délai fixe entre chaque exécution. C’est un outil utile pour créer des animations, des mises à jour de l’interface utilisateur, des minuteries, et bien d’autres choses.
