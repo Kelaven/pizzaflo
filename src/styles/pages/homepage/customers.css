@@ -20,15 +20,25 @@
 }
 
 /* ! cards opening */
-/* **** taille des imgs dans les previews **** */
-.previews__imgs {
-  /* max-width: 300px; */
-  /* height: 150px; */
-  max-height: 300px;
-  max-width: 400px;
-  /* height: auto; */
-  object-fit: cover;
+/* **** taille des imgs dans les previews & slider **** */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+.slideshow > div {
+  position: absolute;
+  /* width: 100%; */
+  margin: 20px auto;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.slideshow > div:first-child {
+  opacity: 1;
+}
+
 /* **** overlay's superposition **** */
 .overlay {
   /* positionner l’élément relativement à la fenêtre du navigateur. L’élément reste fixe même lors du défilement de la page : */
@@ -87,12 +97,6 @@
 @media (max-width: 768px) {
   .preview {
     height: 100svh;
-  }
-
-  .previews__imgs {
-    width: 100%;
-    max-width: 100px; /* Adjust for smaller screens */
-    height: auto;
   }
 }
 

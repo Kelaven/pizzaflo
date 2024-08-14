@@ -5,38 +5,59 @@ export function animateCardsModal() {
     const links = document.querySelectorAll('.item__link');
     const backButtons = document.querySelectorAll('.preview__back');
     const overlays = document.querySelector('.overlay');
-
+    let slideIntervals = []; // Tableau pour stocker les IDs d'intervalle pour le slide
 
     // Fonction pour ouvrir l'élément
     const openItem = (index) => {
-        // afficher la preview :
+        // Afficher la preview
         setTimeout(() => {
             document.querySelector('.previews').style.display = 'block';
         }, 1200);
-        // ajouter la classe CSS active quand la preview est affichée pour rendre le bouton cliquable
+
+        // Ajouter la classe CSS active quand la preview est affichée pour rendre le bouton cliquable
         setTimeout(() => {
             previews[index].classList.add('active');
         }, 1500);
 
-        // setTimeout(() => { // ? à suppr ?
-        // body.classList.add('no-scroll');
-        // }, 1900);
-
         const tl = gsap.timeline({
             defaults: { duration: 1, ease: 'power3.inOut' }
         });
-        // animation des overlays : 
+
+        // Animation des overlays
         tl.set(overlayRows, { transformOrigin: (i) => (i === 0 ? 'top' : 'bottom') }) // définit l’origine de la transformation des deux rangées. La première rangée s’ouvre vers le bas (top), et la deuxième vers le haut (bottom). tl.set() est une méthode de GSAP utilisée pour définir des propriétés CSS sans animation (elle applique immédiatement les valeurs spécifiées). Voir détails en dessous. 
             .to(overlayRows, { scaleY: 1, stagger: 0.1 }) //  anime les deux rangées pour les faire passer de scaleY(0) à scaleY(1), les rendant visibles (stagger: 0.1 introduit un décalage entre les animations des deux rangées pour un effet plus fluide)
             .to(previews[index], { opacity: 1, display: 'flex' }, '-=0.5') // index est l’index de l’élément actuellement sélectionné. Il est nécessaire de redéfinir la propriété display: flex sinon l'affichage bug quand on rouvre plusieurs fois la même preview voir détail en bas
             .to(previews[index].querySelectorAll('.oh__inner'), { y: 0, stagger: 0.05 }, '-=0.5'); // stagger produit l'effet de cascade. y: 0 permet de replacer l'élément à sa position d'origine.
+
+
+        // Animer les slides à l'intérieur
+        function animateSlides() {
+            const slideshows = document.querySelectorAll('.slideshow');
+            slideshows.forEach(slideshow => {
+                let slides = slideshow.querySelectorAll('div');
+                let currentSlide = 0;
+
+                function nextSlide() {
+                    slides[currentSlide].style.opacity = '0'; // Fait disparaître l'actuel
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].style.opacity = '1'; // Fait apparaître le suivant
+                }
+
+                // Initialiser le premier slide
+                slides.forEach((slide, index) => {
+                    slide.style.opacity = index === 0 ? '1' : '0';
+                });
+
+                // Démarrer un intervalle pour changer les slides
+                const intervalID = setInterval(nextSlide, 3000);
+                slideIntervals.push(intervalID); // Stocker l'intervalle ID pour l'arrêter plus tard
+            });
+        }
+        animateSlides();
     };
 
     // Fonction pour fermer l'élément
     const closeItem = (index) => {
-        // setTimeout(() => { // ? à suppr ?
-        //     body.classList.remove('no-scroll');
-        // }, 1200);
         const tl = gsap.timeline({
             defaults: { duration: 1, ease: 'power3.inOut' }
         });
@@ -46,7 +67,11 @@ export function animateCardsModal() {
             .to(overlayRows, { scaleY: 0, stagger: 0.1 }, '-=0.5') // anime les rangées pour les faire passer de scaleY(1) à scaleY(0), les rendant invisibles
             .set('.previews', { display: 'none' })  // Masquer la section previews après l'animation
             .add(() => {
-                previews[index].classList.remove('active'); // retire la classe active de la prévisualisation pour la rendre non interactive
+                previews[index].classList.remove('active'); // Retire la classe active de la prévisualisation
+
+                // Arrêter tous les intervals pour réinitialiser les slides
+                slideIntervals.forEach(intervalID => clearInterval(intervalID));
+                slideIntervals = []; // Réinitialiser le tableau des intervals
             });
     };
 
@@ -64,7 +89,6 @@ export function animateCardsModal() {
         });
     });
 }
-
 
 
 // Détails : 
