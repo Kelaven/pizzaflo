@@ -24,3 +24,6 @@ dist-ssr
 *.sln
 *.sw?
 /otherdocs
+
+# large files
+public/assets/img/video-topgear.mov
