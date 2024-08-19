@@ -70,7 +70,7 @@ export function animateCardsModal() {
                 previews[index].classList.remove('active'); // Retire la classe active de la prévisualisation
 
                 // ! Arrêter tous les intervals pour réinitialiser les slides (et éviter les bugs)
-                slideIntervals.forEach(intervalID => clearInterval(intervalID)); //  Chaque fois que que l'on ferme une carte, les animations sont arrêtées (avec clearInterval)
+                slideIntervals.forEach(intervalID => clearInterval(intervalID)); //  Chaque fois que l'on ferme une carte, les animations sont arrêtées (avec clearInterval)
                 slideIntervals = []; // Réinitialiser le tableau des intervals
             });
     };
