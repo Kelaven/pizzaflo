@@ -24,15 +24,13 @@ export default defineConfig({
         findMe: resolve(__dirname, 'src/pages/findMe.html'),
         privateEvents: resolve(__dirname, 'src/pages/privateEvents.html'),
         pizzasList: resolve(__dirname, 'src/pages/pizzasList.html'),
-
       },
     },
   },
-  server: {
+  server: { // ne s’applique qu’à l’environnement de développement local
     proxy: {
       "/api": {
-        // target: "http://localhost:8081/indexForm.php",
-        target: "https://http://www.test.kevin-lavenant.fr/indexForm.php",
+        target: "http://localhost:8081/indexForm.php",
         changeOrigin: true,
         secure: false, // Désactivation de la vérification SSL en développement
         rewrite: (path) => path.replace(/^\/api/, '')

@@ -3,8 +3,12 @@ header('Content-Type: application/json');
 
 require_once __DIR__ . '/config/regex.php';
 
-require_once __DIR__ . '/../vendor/autoload.php'; // for php mailer
-require_once __DIR__ . '/../vendor/google/recaptcha/src/autoload.php'; // for captcha
+// require_once __DIR__ . '/../vendor/autoload.php'; // pour l'environnement local
+require_once __DIR__ . '/vendor/autoload.php'; // pour la mise en ligne
+// require_once __DIR__ . '/../vendor/google/recaptcha/src/autoload.php'; // pour l'environnement local
+require_once __DIR__ . '/vendor/google/recaptcha/src/autoload.php'; // pour la mise en ligne
+
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
