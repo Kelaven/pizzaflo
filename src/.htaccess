@@ -1,19 +1,17 @@
 # Activation du module de réécriture d'URL:
-
 Options +FollowSymlinks
 RewriteEngine on
 
+# Forcer toutes les requêtes vers l'index principal si aucune URL n'est fournie
+RewriteRule ^$ /index.html [L]
 
 # Règles de réécriture d'URL:
-
-RewriteRule ^$ /index.html
-
-RewriteRule ^accueil$ /index.html
-RewriteRule ^nos-emplacements$ /pages/findMe.html
-RewriteRule ^mentions-legales$ /pages/legalNotice.html
-RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html
-RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html
-RewriteRule ^reservations-privees$ /pages/privateEvents.html
+RewriteRule ^accueil$ /index.html [L]
+RewriteRule ^nos-emplacements$ /pages/findMe.html [L]
+RewriteRule ^mentions-legales$ /pages/legalNotice.html [L]
+RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html [L]
+RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html [L]
+RewriteRule ^reservations-privees$ /pages/privateEvents.html [L]
 
 
 # Redirections 301 pour les anciennes pages:

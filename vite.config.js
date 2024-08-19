@@ -31,7 +31,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8081/indexForm.php",
+        // target: "http://localhost:8081/indexForm.php",
+        target: "https://http://www.test.kevin-lavenant.fr/indexForm.php",
         changeOrigin: true,
         secure: false, // Désactivation de la vérification SSL en développement
         rewrite: (path) => path.replace(/^\/api/, '')
