@@ -1,6 +1,6 @@
 /* ! resizing cards */
 .customers__img-resize {
-  max-height: 35vh;
+  height: 35vh !important;
 }
 @media (min-width: 640px) and (max-width: 1024px) {
   .customers__container--card-resize {
