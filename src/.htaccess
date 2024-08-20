@@ -1,25 +1,30 @@
 # Gestion CORS :
+
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "https://www.test.kevin-lavenant.fr"
+    Header set Access-Control-Allow-Origin "*"
     Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
     Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 </IfModule>
+
 # Répondre aux requêtes OPTIONS
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_METHOD} OPTIONS
     RewriteRule ^(.*)$ $1 [R=200,L]
 </IfModule>
 
-
 # Activation du module de réécriture d'URL:
+
 Options +FollowSymlinks
 RewriteEngine on
 
 # Forcer toutes les requêtes vers l'index principal si aucune URL n'est fournie
+
 RewriteRule ^$ /index.html [L]
 
 # Règles de réécriture d'URL:
+
 RewriteRule ^accueil$ /index.html [L]
 RewriteRule ^nos-emplacements$ /pages/findMe.html [L]
 RewriteRule ^mentions-legales$ /pages/legalNotice.html [L]
@@ -27,11 +32,14 @@ RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html [L]
 RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html [L]
 RewriteRule ^reservations-privees$ /pages/privateEvents.html [L]
 
-
 # Redirections 301 pour les anciennes pages:
+
 # TODO: revoir les redirections
 
 # Redirect 301 / /accueil
+
 # Redirect 301 /vente-direct/ /carte-des-pizzas
+
 # Redirect 301 /mentions-legales-politique-de-confidentialite/ /mentions-legales
+
 # Redirect 301 /privatisation-food-truck/ /reservations-privees

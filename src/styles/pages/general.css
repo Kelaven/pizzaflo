@@ -5,19 +5,13 @@ html {
 
 /* Scroll bar */
 body::-webkit-scrollbar {
-  background-color: #222222;
-  width: 10px;
+  background-color: #303030;
+  width: 16px;
 }
 body::-webkit-scrollbar-track {
-  background: #222222;
+  background: #303030;
 }
 body::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  border: 1px solid #6e6c6b;
+  border: 2px solid #6e6c6b;
 }
-
-/* img {
-  filter: sepia(10%);
-} */
-
-/* ! btns */
