@@ -96,7 +96,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match($regexDate, $date)) {
                 $error['date'] = 'La date doit être au format jj/mm/aaaa.';
             } else {
-                $data['date'] = $date;
+                // $data['date'] = $date;
+                // Conversion de la date au format français
+                $dateObject = DateTime::createFromFormat('Y-m-d', $date);
+                if ($dateObject) {
+                    $data['date'] = $dateObject->format('d-m-Y');
+                } else {
+                    $error['date'] = 'Format de date invalide.';
+                }
             }
         }
     }
@@ -190,6 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Contenu
             $mailer->isHTML(true); // Activer le format HTML pour le corps de l'email
+            $mailer->CharSet = 'UTF-8';
             $mailer->Subject = 'Nouvelle demande de contact';
             $mailer->Body    = "
             <html>
@@ -199,10 +207,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <body>
                 <p><strong>Nom:</strong> {$data['name']}</p>
                 <p><strong>Email:</strong> {$data['email']}</p>
-                <p><strong>Telephone:</strong> {$data['phone']}</p>
+                <p><strong>Téléphone:</strong> {$data['phone']}</p>
                 <p><strong>Localisation:</strong> {$data['location']}</p>
                 <p><strong>Date:</strong> {$data['date']}</p>
-                <p><strong>Nombre d'invites:</strong> {$data['guests']}</p>
+                <p><strong>Nombre d'invités:</strong> {$data['guests']}</p>
                 <p><strong>Message:</strong> {$data['message']}</p>
             </body>
             </html>";
