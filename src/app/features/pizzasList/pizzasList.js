@@ -99,26 +99,38 @@ fetch("/assets/data/pizzas.json")
         });
         // Anime le blob
         const allCards = document.querySelectorAll(".break-black-20");
+
+        // Optimisation : limiter les reflows en regroupant les calculs
+        let isAnimating = false;
+
         window.addEventListener("mousemove", (ev) => {
-            allCards.forEach((e) => {
-                const blob = e.querySelector(".blob"); // Pour chaque carte, on récupère son élément enfant avec la classe .blob afin d'intéragir avec lui. On le sélectionne uniquement avec querySelector et non pas querySelectorAll car on ne cible qu'un seul élément par carte. Cela évite de manipuler par erreur plusieurs éléments et d'engendrer des bugs. 
-                const fblob = e.querySelector(".fake-blob");
+            if (!isAnimating) {
+                isAnimating = true;
 
-                const rec = fblob.getBoundingClientRect(); // Pour obtenir des informations sur la taille d’un élément et sa position par rapport à la zone de visualisation (viewport) du navigateur
+                requestAnimationFrame(() => { // requestAnimationFrame est utilisé pour regrouper et limiter les reflows forcés (cela permet au navigateur de regrouper les modifications du DOM et d’éviter de déclencher des reflows inutiles à chaque mouvement de la souris). Plutôt que de déclencher immédiatement un reflow à chaque mouvement de la souris, getBoundingClientRect est appelé dans requestAnimationFrame, réduisant ainsi la fréquence des recalculs de la disposition.
+                    allCards.forEach((e) => {
+                        const blob = e.querySelector(".blob"); // Pour chaque carte, on récupère son élément enfant avec la classe .blob afin d'intéragir avec lui. On le sélectionne uniquement avec querySelector et non pas querySelectorAll car on ne cible qu'un seul élément par carte. Cela évite de manipuler par erreur plusieurs éléments et d'engendrer des bugs. 
+                        const fblob = e.querySelector(".fake-blob");
 
-                blob.animate( // La méthode animate() est utilisée pour créer des animations directement dans le navigateur en manipulant les propriétés CSS d’un élément. Elle fait partie de l’API Web Animations, qui permet de contrôler les animations à l’aide de JavaScript sans avoir besoin de CSS supplémentaire. https://developer.mozilla.org/fr/docs/Web/API/Element/animate
-                    [{
-                        transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px,${ev.clientY - rec.top - (rec.height / 2)}px)`,
-                    }], // Pour que le blob bouge avec le milieu de notre curseur. La fonction translate(x, y) déplace l’élément dans l’espace X et Y. 
-                    // ev.clientX et ev.clientY : Ces propriétés représentent les coordonnées X et Y de la souris par rapport à la fenêtre d’affichage lorsque l’événement mousemove se produit.
-                    // rec.left et rec.top : Ces valeurs proviennent de l’utilisation de getBoundingClientRect() et représentent la position de l’élément par rapport à la fenêtre.
-                    // rec.width / 2 et rec.height / 2 : Ces valeurs sont utilisées pour centrer le blob au milieu du curseur de la souris, plutôt qu’au coin supérieur gauche.
-                    {
-                        duration: 100,
-                        fill: "forwards", // Pour que le blob reste à son dernier emplacement
-                    }
-                );
-            });
+                        const rec = fblob.getBoundingClientRect(); // Pour obtenir des informations sur la taille d’un élément et sa position par rapport à la zone de visualisation (viewport) du navigateur
+
+                        blob.animate( // La méthode animate() est utilisée pour créer des animations directement dans le navigateur en manipulant les propriétés CSS d’un élément. Elle fait partie de l’API Web Animations, qui permet de contrôler les animations à l’aide de JavaScript sans avoir besoin de CSS supplémentaire. https://developer.mozilla.org/fr/docs/Web/API/Element/animate
+                            [{
+                                transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px,${ev.clientY - rec.top - (rec.height / 2)}px)`,
+                            }], // Pour que le blob bouge avec le milieu de notre curseur. La fonction translate(x, y) déplace l’élément dans l’espace X et Y. 
+                            // ev.clientX et ev.clientY : Ces propriétés représentent les coordonnées X et Y de la souris par rapport à la fenêtre d’affichage lorsque l’événement mousemove se produit.
+                            // rec.left et rec.top : Ces valeurs proviennent de l’utilisation de getBoundingClientRect() et représentent la position de l’élément par rapport à la fenêtre.
+                            // rec.width / 2 et rec.height / 2 : Ces valeurs sont utilisées pour centrer le blob au milieu du curseur de la souris, plutôt qu’au coin supérieur gauche.
+                            {
+                                duration: 100,
+                                fill: "forwards", // Pour que le blob reste à son dernier emplacement
+                            }
+                        );
+                    });
+
+                    isAnimating = false;
+                });
+            }
         });
     })
     .catch(error => {
