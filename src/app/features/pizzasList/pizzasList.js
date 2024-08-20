@@ -114,7 +114,7 @@ fetch("/assets/data/pizzas.json")
                     // rec.left et rec.top : Ces valeurs proviennent de l’utilisation de getBoundingClientRect() et représentent la position de l’élément par rapport à la fenêtre.
                     // rec.width / 2 et rec.height / 2 : Ces valeurs sont utilisées pour centrer le blob au milieu du curseur de la souris, plutôt qu’au coin supérieur gauche.
                     {
-                        duration: 300,
+                        duration: 100,
                         fill: "forwards", // Pour que le blob reste à son dernier emplacement
                     }
                 );
