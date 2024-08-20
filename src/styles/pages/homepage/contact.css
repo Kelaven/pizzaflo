@@ -18,19 +18,15 @@
   transition: transform 0.3s ease;
 }
 
-/* Hack pour cibler uniquement Safari */
-@media not all and (min-resolution: 0.001dpcm) and (min-width: 0.1em) {
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    input[type="date"] {
-      width: 100%;
-      padding: 12px;
-      border-radius: 0.375rem;
-      background-color: white;
-      font-size: 1rem;
-      border: 1px solid #ccc; /* Ajouter une bordure pour Safari */
-      box-sizing: border-box; /* Assurer que la largeur inclut la bordure et le padding */
-      appearance: none;
-      -webkit-appearance: none;
-    }
-  }
+/* Hack pour cibler Safari */
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column; /* Aligne les éléments verticalement */
+  width: 100%;
+}
+.date-input-wrapper input[type="date"] {
+  background-color: white;
+  width: 100%; /* Assure que l'input prend toute la largeur du conteneur */
+  -webkit-appearance: none;
+  appearance: none;
 }
