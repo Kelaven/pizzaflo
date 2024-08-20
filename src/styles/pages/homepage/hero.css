@@ -68,9 +68,12 @@
 @media screen and (max-width: 767px) and (orientation: portrait) {
   @supports (-webkit-touch-callout: none) {
     /* Styles spécifiques à Safari sur iOS en mode portrait */
-    .h1__iphone {
+    .span-h1__iphone {
       /* Exemple de style pour Safari en portrait */
       -webkit-text-size-adjust: 90%; /* Préfixe spécifique à Safari */
+    }
+    .h1__iphone {
+      -webkit-text-size-adjust: 85%;
     }
   }
 }
