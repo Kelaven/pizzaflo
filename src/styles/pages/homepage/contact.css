@@ -11,6 +11,13 @@
   text-align: center;
 }
 
+.contact-btn:hover {
+  transform: scale(1.02);
+}
+.contact-btn {
+  transition: transform 0.3s ease;
+}
+
 /* Modifier l'input date pour safari */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
