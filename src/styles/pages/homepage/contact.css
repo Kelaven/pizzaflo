@@ -10,3 +10,15 @@
   font-size: 1.2em;
   text-align: center;
 }
+
+/* Modifier l'input date pour safari */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    input[type="date"] {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      background-color: white;
+    }
+  }
+}

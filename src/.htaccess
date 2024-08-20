@@ -1,3 +1,17 @@
+# Gestion CORS :
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://www.test.kevin-lavenant.fr"
+    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+# Répondre aux requêtes OPTIONS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+
+
 # Activation du module de réécriture d'URL:
 Options +FollowSymlinks
 RewriteEngine on
