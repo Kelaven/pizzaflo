@@ -24,7 +24,7 @@ export function formAPI() {
 
         try {
             // const response = await fetch("/api", { // pour l’environnement de développement local
-            const response = await fetch("https://www.test.kevin-lavenant.fr/indexForm.php", { // pour la mise en ligne
+            const response = await fetch("https://test.kevin-lavenant.fr/indexForm.php", { // pour la mise en ligne
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

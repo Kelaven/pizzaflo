@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header("Access-Control-Allow-Origin: https://www.test.kevin-lavenant.fr");
+header("Access-Control-Allow-Origin: https://test.kevin-lavenant.fr");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 

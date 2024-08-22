@@ -1,8 +1,12 @@
 # Gérer CORS (rediriger automatiquement toutes les requêtes qui arrivent sur votre site avec le sous-domaine www vers la version sans www) : 
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{HTTP_HOST} ^test\.kevin-lavenant\.fr$ [NC]
+# RewriteRule ^(.*)$ https://www.test.kevin-lavenant.fr/$1 [R=301,L]
 RewriteEngine On
 RewriteBase /
-RewriteCond %{HTTP_HOST} ^test\.kevin-lavenant\.fr$ [NC]
-RewriteRule ^(.*)$ https://www.test.kevin-lavenant.fr/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 
 # Activation du module de réécriture d'URL:
