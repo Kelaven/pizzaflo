@@ -54,14 +54,28 @@
     <header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-break-black text-sm py-4">
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
             <div class="flex items-center justify-between w-full">
-                <!-- Logo et nom -->
-                <a class="inline-flex items-center gap-x-3 text-xl font-semibold text-white" href="/accueil">
-                    <img src="/assets/img/logo-pizzaflo-black.png" class="h-14" alt="Pizza Flo Logo">
-                    <div class="flex flex-col">
-                        <span class="font-oswald text-lg sm:text-xl leading-none">Pizza Flo</span>
-                        <span class="font-oswald text-sm sm:text-base text-gray-300 leading-none">06 84 95 94 77</span>
+                <div class="flex items-center w-full">
+                    <!-- Logo -->
+                    <div class="">
+                        <!-- Lien du logo -->
+                        <a class="inline-flex items-center gap-x-3 text-xl font-semibold text-white" href="/accueil">
+                            <img src="/assets/img/logo-pizzaflo-black.png" class="h-14" alt="Pizza Flo Logo">
+                        </a>
                     </div>
-                </a>
+                    <div class="ps-4 flex flex-col">
+                        <div>
+                            <a class="font-semibold text-white" href="/accueil">
+                                <span class="font-oswald text-lg sm:text-xl leading-none">Pizza Flo</span>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- Lien du numéro de téléphone aligné sous "Pizza Flo" -->
+                            <a href="tel:+33684959477" class="text-gray-300">
+                                <span class="font-oswald text-sm sm:text-base leading-none">06 84 95 94 77</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="sm:hidden">
                     <button type="button"
                         class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-white bg-break-black text-white shadow-sm hover:bg-break-black disabled:opacity-50 disabled:pointer-events-none"
@@ -440,7 +454,8 @@
                                     Asterix, Festival Coucool, Arc
                                     Food et tellement d'autres !</span></span>
                         </div>
-                        <div class="oh w-full h-3/5"><span class="flex oh__inner flex-wrap justify-center h-full">
+                        <div class="oh w-full h-3/5">
+                            <div class="flex oh__inner flex-wrap justify-center h-full">
                                 <div class="slideshow flex justify-center">
                                     <div>
                                         <img class="h-full w-full object-cover object-bottom"
@@ -464,7 +479,7 @@
                                             loading="lazy">
                                     </div>
                                 </div>
-                            </span>
+                            </div>
                         </div>
                         <button class="text-white preview__back oh pt-4"><span class="oh__inner">Retour</span></button>
                     </div>
@@ -482,7 +497,8 @@
                             <span class="text-white oh"><span class="oh__inner">mariages et rebonds, anniversaires,
                                     baptêmes, cousinades, départs à la retraite, etc.</span></span>
                         </div>
-                        <div class="oh w-full h-3/5"><span class="flex oh__inner flex-wrap justify-center h-full">
+                        <div class="oh w-full h-3/5">
+                            <div class="flex oh__inner flex-wrap justify-center h-full">
                                 <div class="slideshow flex justify-center">
                                     <div>
                                         <img class="h-full w-full object-cover object-bottom"
@@ -543,7 +559,7 @@
                                             loading="lazy">
                                     </div>
                                 </div>
-                            </span>
+                            </div>
                         </div>
                         <button class="text-white preview__back oh pt-4"><span class="oh__inner">Retour</span></button>
                     </div>
@@ -590,7 +606,7 @@
                         ? Un évènement à préparer ? Vous pouvez nous envoyer un mail ici ! Remplissez le formulaire et
                         nous vous répondrons le plus rapidemment possible. Vous pouvez aussi nous
                         contacter directement
-                        au <span class="font-bold">06 84 95 94 77</span> / <span
+                        au <a href="tel:+33684959477" class="font-bold">06 84 95 94 77</a> / <span
                             class="font-bold">jclavenant@pizza-flo.com</span>.
                     </p>
                 </div>
@@ -600,7 +616,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Name -->
                             <div class="py-1">
-                                <label for="name" class="text-white font-openSans">Nom et prénom*</label>
+                                <label for="name" class="text-white font-openSans">Prénom et nom*</label>
                                 <input placeholder="Antoine Dupont" type="text" id="name" name="name"
                                     class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm"
                                     minlength="2" maxlength="60" required>
@@ -634,7 +650,7 @@
                             <div class="py-1 relative">
                                 <div class="date-input-wrapper">
                                     <label for="date" class="text-white font-openSans">Date de l’évènement</label>
-                                    <input placeholder="01/01/2024" type="date" id="date" name="date"
+                                    <input type="date" id="date" name="date"
                                         class="w-full p-2 rounded-md bg-white placeholder:text-slate-400 placeholder:italic placeholder:text-sm">
                                 </div>
                                 <small id="dateError" class="text-red-500 error-message"></small>

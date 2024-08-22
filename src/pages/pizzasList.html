@@ -53,14 +53,28 @@
     <header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-break-black text-sm py-4">
         <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
             <div class="flex items-center justify-between w-full">
-                <!-- Logo et nom -->
-                <a class="inline-flex items-center gap-x-3 text-xl font-semibold text-white" href="/accueil">
-                    <img src="/assets/img/logo-pizzaflo-black.png" class="h-14" alt="Pizza Flo Logo">
-                    <div class="flex flex-col">
-                        <span class="font-oswald text-lg sm:text-xl leading-none">Pizza Flo</span>
-                        <span class="font-oswald text-sm sm:text-base text-gray-300 leading-none">06 84 95 94 77</span>
+                <div class="flex items-center w-full">
+                    <!-- Logo -->
+                    <div class="">
+                        <!-- Lien du logo -->
+                        <a class="inline-flex items-center gap-x-3 text-xl font-semibold text-white" href="/accueil">
+                            <img src="/assets/img/logo-pizzaflo-black.png" class="h-14" alt="Pizza Flo Logo">
+                        </a>
                     </div>
-                </a>
+                    <div class="ps-4 flex flex-col">
+                        <div>
+                            <a class="font-semibold text-white" href="/accueil">
+                                <span class="font-oswald text-lg sm:text-xl leading-none">Pizza Flo</span>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- Lien du numéro de téléphone aligné sous "Pizza Flo" -->
+                            <a href="tel:+33684959477" class="text-gray-300">
+                                <span class="font-oswald text-sm sm:text-base leading-none">06 84 95 94 77</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="sm:hidden">
                     <button type="button"
                         class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-white bg-break-black text-white shadow-sm hover:bg-break-black disabled:opacity-50 disabled:pointer-events-none"
@@ -86,13 +100,13 @@
                 class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                 <div
                     class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 md:py-4">
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-green relative"
+                    <a class="text-white font-oswald text-sm xl:text-base 2xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-green relative"
                         href="/reservations-privees">Réservations privées</a>
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-white relative xl:mx-6"
+                    <a class="text-white font-oswald text-sm xl:text-base 2xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-white relative xl:mx-6"
                         href="/nos-emplacements">Nos emplacements</a>
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-red relative xl:me-6"
+                    <a class="text-white font-oswald text-sm xl:text-base 2xl:text-xl max-sm:ml-auto max-sm:mr-auto animate-underline-red relative xl:me-6"
                         href="/carte-des-pizzas">Carte des pizzas</a>
-                    <a class="text-white font-oswald text-base xl:text-xl max-sm:ml-auto max-sm:mr-auto relative contact-btn"
+                    <a class="text-white font-oswald text-sm xl:text-base 2xl:text-xl max-sm:ml-auto max-sm:mr-auto relative contact-btn"
                         href="/#contact__section">Contactez-moi</a>
 
                 </div>
