@@ -1,23 +1,14 @@
-# Gestion CORS :
+# Gérer CORS (rediriger automatiquement toutes les requêtes qui arrivent sur votre site avec le sous-domaine www vers la version sans www) : 
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^test\.kevin-lavenant\.fr$ [NC]
+RewriteRule ^(.*)$ https://www.test.kevin-lavenant.fr/$1 [R=301,L]
 
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
-</IfModule>
-
-# Répondre aux requêtes OPTIONS
-
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} OPTIONS
-    RewriteRule ^(.*)$ $1 [R=200,L]
-</IfModule>
 
 # Activation du module de réécriture d'URL:
 
 Options +FollowSymlinks
-RewriteEngine on
+# RewriteEngine on
 
 # Forcer toutes les requêtes vers l'index principal si aucune URL n'est fournie
 
