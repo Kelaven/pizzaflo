@@ -201,7 +201,8 @@
   {
     "nom": "Calzone (chausson)",
     "prix": {
-      "29cm": "10€"
+      "29cm": "10€",
+      "40cm": "-"
     },
     "ingrédients": ["Base tomate", "jambon", "oeuf", "mozzarella"],
     "catégorie": "Pizzas traditionnelles"

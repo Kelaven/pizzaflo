@@ -50,7 +50,7 @@ fetch("/assets/data/pizzas.json")
             cardDescription.innerHTML = `
                 <p>
                     Senior ${pizza.prix['29cm']} •
-                    Familiale: ${pizza.prix['40cm']}
+                    Familiale ${pizza.prix['40cm']}
                     <br><br>
                     ${pizza.ingrédients.join(', ')}
                     </p>
