@@ -180,7 +180,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mailer = new PHPMailer(true);
         try {
             // Configuration du serveur
-            //TODO: vérifier l’hôte, le port, le nom d’utilisateur et le mot de passe 
             $mailer->setLanguage('fr');
             $mailer->isSMTP();
             $mailer->SMTPAuth   = true;

@@ -26,21 +26,3 @@ RewriteRule ^mentions-legales$ /pages/legalNotice.html [L]
 RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html [L]
 RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html [L]
 RewriteRule ^reservations-privees$ /pages/privateEvents.html [L]
-
-
-
-
-# Redirections 301 pour les anciennes pages:
-
-Redirect 301 /Food%20truks%20Pizza%20Flo%20en%20photos.html https://pizza-flo.fr/
-Redirect 301 /Vente%20directe.html https://pizza-flo.fr/pages/findMe.html
-Redirect 301 /index.html https://pizza-flo.fr/  # Redirection de l'index vers la racine
-Redirect 301 /Mentions%20legales.html https://pizza-flo.fr/pages/legalNotice.html
-Redirect 301 /Carte%20des%20pizzas.html https://pizza-flo.fr/pages/pizzasList.html
-Redirect 301 /Service%20traiteur%20pizza%20flo.html https://pizza-flo.fr/pages/privateEvents.html
-Redirect 301 /Carte%202020.pdf https://pizza-flo.fr/
-Redirect 301 /Hamburger%20au%20feu%20de%20bois%20avec%20le%20camion%20food%20trucks.html https://pizza-flo.fr/
-Redirect 301 /Mes%20exigences.html https://pizza-flo.fr/
-Redirect 301 /Vente%20directe.htm https://pizza-flo.fr/pages/findMe.html
-Redirect 301 /Carte%20des%20pizzas.htm https://pizza-flo.fr/pages/pizzasList.html
-Redirect 301 /PIZZA%20FLO%20vous%20propose%20sa%20carte%202018%20.pdf https://pizza-flo.fr/
