@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /indexForm.php
 Disallow: /config/
+Sitemap: https://pizza-flo.fr/sitemap.xml
