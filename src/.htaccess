@@ -23,3 +23,11 @@ RewriteRule ^mentions-legales$ /pages/legalNotice.html [L]
 RewriteRule ^carte-des-pizzas$ /pages/pizzasList.html [L]
 RewriteRule ^politique-de-confidentialite$ /pages/privacyPolicy.html [L]
 RewriteRule ^reservations-privees$ /pages/privateEvents.html [L]
+
+# Compression des fichiers textes : 
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript application/javascript application/json
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>

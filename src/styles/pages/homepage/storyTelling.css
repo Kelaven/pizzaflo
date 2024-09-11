@@ -16,7 +16,12 @@
   z-index: 1;
 }
 .vintage-effect::before {
-  background: url("/assets/img/noise.png");
+  /* background: url("/assets/img/noise.webp"); */
+  background-image: url("/assets/img/noise.png"); /* Fallback pour anciens navigateurs */
+  background-image: image-set(
+    url("/assets/img/noise.webp") type("image/webp"),
+    url("/assets/img/noise.png") type("image/png")
+  );
   opacity: 0.2;
   mix-blend-mode: multiply; /* mélange l’image de bruit avec le contenu en dessous, créant un effet de texture. */
   animation: noise 0.6s steps(10) infinite; /* applique une animation pour donner l’impression que le bruit est en mouvement. steps() est utilisé pour créer un effet de mouvement saccadé : l’animation se fait en 10 étapes discrètes. Cela signifie que l’image de fond se déplace de manière saccadée au lieu de fluide */
